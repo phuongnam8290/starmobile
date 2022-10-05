@@ -119,8 +119,18 @@ li {
 }
 
 .categories-item {
+  overflow: hidden;
   position: relative;
   display: flex;
+}
+
+.categories-item img {
+  transition-duration: .5s;
+}
+
+.categories-item:hover img {
+  transform: scale(1.2);
+  filter: blur(2px);
 }
 
 .categories-item.item-1 {
