@@ -37,11 +37,12 @@ li {
 
 .header-logo {
   flex: 0 0 300px;
+  margin-bottom: -.7rem;
 }
 
 .header-logo a {
   color: #000;
-  font-size: 27px;
+  font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 3px;
@@ -49,7 +50,7 @@ li {
 
 .header-logo a span {
   color: #ff7200;
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 .header-search {
@@ -67,7 +68,6 @@ li {
 
 .header-auth a,
 .header-auth span {
-  font-size: 17px;
   color: #666666;
 }
 
@@ -85,7 +85,7 @@ li {
 
 .header-menu ul li a {
   color: #000;
-  font-size: 17px;
+  font-size: 1.1rem;
   font-weight: 500;
   display: block;
   padding: 2px 0;
@@ -396,4 +396,70 @@ li {
 
 .btn.submit:hover {
   background-color: #e46d0c;
+}
+
+.footer .footer-logo {
+  margin-bottom: 1rem;
+}
+
+.footer .footer-logo a {
+  font-size: 2rem;
+  color: #000;
+}
+
+.footer .footer-logo a span {
+  color: #ff7200;
+  font-weight: 700;
+}
+
+.footer .footer-about p {
+  margin-bottom: 2rem;
+  width: 80%;
+}
+
+.footer .footer-social a {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-color: #ff7200;
+  color: #ffffff;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 10%;
+  margin-right: .5rem;
+  transition: all .5s;
+}
+
+.footer .footer-social a:hover {
+  background-color: #e46d0c;
+  color: #ffffff;
+}
+
+.footer .footer-social a:last-child {
+  margin-right: 0;
+}
+
+.footer .footer-widget h6 {
+  color: #111;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.footer .footer-widget li {
+  margin-bottom: .4rem;
+}
+
+.footer .footer-widget a {
+  font-size: .9rem;
+  color: #666;
+}
+
+footer {
+  background-color: #f4f4f4;
+}
+
+footer a,
+footer a:hover {
+  color: #ff7200;
 }
