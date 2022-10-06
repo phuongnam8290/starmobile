@@ -7,6 +7,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+section {
+  padding: 5rem 0;
+}
+
 a, a:hover, a:focus {
   text-decoration: none !important;
   outline: none;
@@ -116,6 +120,7 @@ li {
   grid-template-rows: repeat(2, 1fr);
   column-gap: 10px;
   row-gap: 10px;
+  padding: 0;
 }
 
 .categories-item {
@@ -210,8 +215,7 @@ li {
 }
 
 .products {
-  padding-top: 60px;
-  padding-bottom: 50px;
+  margin-bottom: -2rem;
 }
 
 .products .section-title {
@@ -349,4 +353,47 @@ li {
 
 .product-text .product-price {
   font-weight: 600;
+}
+
+.newsletter-area {
+  background-color: #f4f4f4;
+}
+
+.newsletter-area p,
+.newsletter-area form{
+  margin: 0 auto;
+  width: 60%;
+}
+
+.newsletter-area p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #777;
+  font-weight: 600;
+}
+
+.subscribe-form input {
+  padding: 1.5rem;
+  color: #495057;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  letter-spacing: 2px;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn.submit {
+  background-color: #ff7200;
+  color: #ffffff;
+  padding: .7rem 3rem;
+  text-transform: uppercase;
+  border-radius: 50px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.15);
+  transition: all .3s;
+}
+
+.btn.submit:hover {
+  background-color: #e46d0c;
 }
