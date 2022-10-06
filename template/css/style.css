@@ -208,3 +208,145 @@ li {
   background-color: #ff7200;
   content: '';
 }
+
+.products {
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+.products .section-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 45px;
+}
+
+.products .section-title h4 {
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.products .section-title h4:after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 30%;
+  background-color: #ca1515;
+}
+
+.product {
+  margin-bottom: 2rem;
+}
+
+.product-pic {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-pic .label {
+  position: absolute;
+  font-size: .8rem;
+  color: #ffffff;
+  font-weight: 500;
+  display: inline-block;
+  padding: 2px 8px;
+  text-transform: uppercase;
+  left: 10px;
+  top: 10px;
+}
+
+.product-pic .label.new {
+  background-color: #ff7200;
+}
+
+.product-hover {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  margin-bottom: 0;
+}
+
+.product-hover li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 100px;
+  width: 45px;
+  height: 45px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0 0 25px rgb(24 24 24 / 40%);
+  opacity: 0;
+}
+
+.product-hover li:hover {
+  background-color: #ff7200;
+}
+
+.product-hover li a {
+  font-size: 1.1rem;
+  color: #000;
+}
+
+.product-hover li i {
+  transform: rotate(0);
+  transition: all .3s ease-in .1s;
+}
+
+.product-hover li:hover i {
+  color: #fff;
+  transform: rotate(360deg);
+}
+
+.product-pic:hover .product-hover li {
+  opacity: 1;
+  top: 0;
+}
+
+.product-hover li:nth-child(1) {
+  transition: all 0.4s ease 0.1s;
+}
+
+
+.product-hover li:nth-child(2) {
+  transition: all 0.4s ease 0.15s;
+}
+
+
+.product-hover li:nth-child(3) {
+  transition: all 0.4s ease 0.2s;
+}
+
+
+.product-hover li:nth-child(4) {
+  transition: all 0.4s ease 0.25s;
+}
+
+.product-text {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.product-text a {
+  color: #000;
+}
+
+.product-text .rating {
+  margin: .5rem 0;
+}
+
+.product-text .rating i {
+  font-size: 1.5rem;
+  color: #e3c01c;
+}
+
+.product-text .product-price {
+  font-weight: 600;
+}
