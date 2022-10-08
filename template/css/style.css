@@ -20,6 +20,10 @@ li {
   list-style-type: none;
 }
 
+/*-----------------------------------------------------------------------
+--------------------------------  HEADER  -------------------------------
+-------------------------------------------------------------------------*/
+
 .btn-custom,
 .btn-custom:active:focus {
   color: #fff !important;
@@ -113,6 +117,10 @@ li {
   margin-right: 0;
 }
 
+/*-----------------------------------------------------------------------
+--------------------------------  BANNER  -------------------------------
+-------------------------------------------------------------------------*/
+
 .categories {
   position: relative;
   display: grid;
@@ -130,6 +138,7 @@ li {
 }
 
 .categories-item img {
+  width: 100%;
   transition-duration: .5s;
 }
 
@@ -213,6 +222,10 @@ li {
   background-color: #ff7200;
   content: '';
 }
+
+/*-----------------------------------------------------------------------
+--------------------------------  PRODUCTS  -----------------------------
+-------------------------------------------------------------------------*/
 
 .products {
   margin-bottom: -2rem;
@@ -355,6 +368,10 @@ li {
   font-weight: 600;
 }
 
+/*-----------------------------------------------------------------------
+-----------------------------  NEWSLETTER  ------------------------------
+-------------------------------------------------------------------------*/
+
 .newsletter-area {
   background-color: #f4f4f4;
 }
@@ -397,6 +414,10 @@ li {
 .btn.submit:hover {
   background-color: #e46d0c;
 }
+
+/*-----------------------------------------------------------------------
+--------------------------------  FOOTER  -------------------------------
+-------------------------------------------------------------------------*/
 
 .footer .footer-logo {
   margin-bottom: 1rem;
@@ -462,4 +483,97 @@ footer {
 footer a,
 footer a:hover {
   color: #ff7200;
+}
+
+/*-----------------------------------------------------------------------
+--------------------------------  SIGN-IN  ------------------------------
+-------------------------------------------------------------------------*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.sign-in-modal {
+  width: 50%;
+  background-color: #f4f4f4;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.sign-in-img {
+  background: url("/template/img/signin/01.jpg") no-repeat center/cover;
+}
+
+.sign-in-form {
+  padding: 2rem 3rem;
+  text-align: center;
+}
+
+.sign-in-form h1 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sign-in-socials  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.sign-in-socials a {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  background-color: #ff7200;
+  color: #ffffff;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 10%;
+  margin-right: .5rem;
+  transition: all .5s;
+}
+
+.sign-in-socials a:hover {
+  background-color: #e46d0c;
+  color: #ffffff;
+}
+
+.sign-in-form input[type="text"],
+.sign-in-form input[type="password"] {
+  padding: 1.5rem 1rem;
+  color: #495057;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.sign-in-form input[type="text"]:focus,
+.sign-in-form input[type="password"]:focus {
+  border: 2px solid #ff7200;
+  box-shadow: none;
+}
+
+.sign-in-form input[type="submit"],
+.sign-in-form input[type="submit"]:focus:active {
+  color: #fff !important;
+  background-color: #ff7200 !important;
+  border-color: #ff7200 !important;
+  box-shadow: none !important;
+}
+
+.sign-in-form input[type="submit"]:hover {
+  color: #ff7200 !important;
+  background-color: #fff !important;
+  border-color: #ff7200 !important;
+  box-shadow: none !important;
 }
