@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
           integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css">
 </head>
 <body>
-<jsp:include page="components/header.jsp" />
-<jsp:include page="components/banner.jsp" />
-<jsp:include page="components/products.jsp" />
-<jsp:include page="components/newsletter.jsp" />
-<jsp:include page="components/footer.jsp" />
-<jsp:include page="components/sign-in-form.jsp" />
+<jsp:include page="../components/header.jsp" />
+<jsp:include page="../components/banner.jsp" />
+<jsp:include page="../components/products.jsp" />
+<jsp:include page="../components/newsletter.jsp" />
+<jsp:include page="../components/footer.jsp" />
+<jsp:include page="../components/sign-in-form.jsp" />
 
 
 <!-- jQuery library -->
@@ -30,6 +30,6 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="static/js/script.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/script.js"></script>
 </body>
 </html>

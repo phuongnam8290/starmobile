@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <header class="header mx-5 my-4">
   <div class="container-fluid">
     <div class="d-flex align-items-end mb-4 header-top">
@@ -11,9 +14,16 @@
         </div>
       </div>
       <div class="d-flex justify-content-end header-auth">
-        <a href="#" class="login">Login</a>
-        <span>/</span>
-        <a href="#">Register</a>
+        <c:if test="${sessionScope.auth == null}">
+          <a href="#" class="login">Login</a>
+          <span>/</span>
+          <a href="#">Register</a>
+        </c:if>
+
+        <c:if test="${sessionScope.auth != null}">
+          <a href="#">Hello, ${sessionScope.auth.username}</a>
+        </c:if>
+
       </div>
     </div>
     <nav class="header-menu">

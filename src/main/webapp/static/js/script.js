@@ -30,10 +30,23 @@ let signInForm = document.querySelector(".sign-in-form");
 let username = document.querySelector("#username");
 let password = document.querySelector("#password");
 
-signInForm.addEventListener("submit", event => {
+signInForm.addEventListener("submit", async event => {
   event.preventDefault();
   if (validateInput()) {
-    //TODO: Call backend API
+    let response = await fetch("login", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `username=${username.value}&password=${password.value}`,
+    });
+    let result = await response.json();
+
+    if(result.isValid) {
+      window.location.replace("home");
+    } else {
+      setError(username, result.message);
+    }
   }
 })
 
