@@ -488,6 +488,10 @@ footer a:hover {
 /*-----------------------------------------------------------------------
 --------------------------------  SIGN-IN  ------------------------------
 -------------------------------------------------------------------------*/
+body.custom-modal-open {
+  overflow: hidden;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -547,13 +551,17 @@ footer a:hover {
   color: #ffffff;
 }
 
+.sign-in-form .custom-input-group {
+  margin-bottom: 1rem;
+}
+
 .sign-in-form input[type="text"],
 .sign-in-form input[type="password"] {
   padding: 1.5rem 1rem;
   color: #495057;
+  border: 2px solid transparent;
   border-radius: 10px;
   outline: none;
-  margin-bottom: 1.5rem;
   width: 100%;
 }
 
@@ -561,6 +569,13 @@ footer a:hover {
 .sign-in-form input[type="password"]:focus {
   border: 2px solid #ff7200;
   box-shadow: none;
+}
+
+.sign-in-form .custom-input-group.error input[type="text"],
+.sign-in-form .custom-input-group.error input[type="password"],
+.sign-in-form .custom-input-group.error input[type="text"]:focus,
+.sign-in-form .custom-input-group.error input[type="password"]:focus {
+  border: 2px solid #ca1515;
 }
 
 .sign-in-form input[type="submit"],
@@ -576,4 +591,13 @@ footer a:hover {
   background-color: #fff !important;
   border-color: #ff7200 !important;
   box-shadow: none !important;
+}
+
+.sign-in-form .error-msg {
+  margin-top: .5rem;
+  padding-left: 1rem;
+  text-align: left;
+  font-size: .8rem;
+  color: #ca1515;
+  height: 1rem;
 }
