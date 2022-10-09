@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/starmobile.iml" filepath="$PROJECT_DIR$/.idea/starmobile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/starmobile.iml" filepath="$PROJECT_DIR$/starmobile.iml" />
     </modules>
   </component>
 </project>
