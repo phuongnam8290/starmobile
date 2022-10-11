@@ -5,6 +5,7 @@ public class User {
   private final String password;
 
   public User(String username, String password) {
+
     this.username = username;
     this.password = password;
   }
@@ -15,5 +16,9 @@ public class User {
 
   public String getPassword() {
     return password;
+  }
+
+  public String getName() {
+    return username.split("@")[0];
   }
 }

@@ -18,11 +18,24 @@ public class LoginController extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String username = getInitParameter("username");
-    String password = getInitParameter("password");
+    String username = getServletContext().getInitParameter("username");
+    String password = getServletContext().getInitParameter("password");
     String responseJson = "";
 
-    if(request.getParameter("username").equals(username) &&
+    String emailRegex = "^[A-z0-9_a-z]+@[A-Z0-9.a-z]+\\.[A-Za-z]{2,6}$";
+    String passwordRegex = "^[a-zA-Z0-9_!@#$%^&*]+$";
+
+    // Check username & password not empty
+    if(username == null || password == null || username.trim().length() == 0 ||
+        password.trim().length() == 0) {
+      responseJson = "{\"isValid\": false, \"message\": \"Username or password is empty.\"}";
+    }
+    // Check username & password match format requirement
+    else if(!username.matches(emailRegex) || !password.matches(passwordRegex)) {
+      responseJson = "{\"isValid\": false, \"message\": \"Invalid syntax.\"}";
+    }
+    // If username & password match parameter set in web.xml, create authentication for this session
+    else if(request.getParameter("username").equals(username) &&
         request.getParameter("password").equals(password)) {
       HttpSession session = request.getSession();
       session.setAttribute("auth", new User(username, null));
@@ -31,6 +44,7 @@ public class LoginController extends HttpServlet {
       responseJson = "{\"isValid\": false, \"message\": \"Username or password does not match.\"}";
     }
 
+    // Response as JSON
     PrintWriter writer = response.getWriter();
     response.setContentType("application/json");
     response.setCharacterEncoding("UTF-8");

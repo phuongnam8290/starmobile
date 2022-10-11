@@ -43,9 +43,9 @@ signInForm.addEventListener("submit", async event => {
     });
     let result = await response.json();
 
-    // If user exists, redirect to home page. If not, show error.
+    // If user exists, redirect to admin page. If not, show error.
     if(result.isValid) {
-      window.location.replace("home");
+      window.location.replace("admin");
     } else {
       setError(username, result.message);
     }
