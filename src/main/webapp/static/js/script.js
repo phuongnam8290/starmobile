@@ -32,6 +32,7 @@ let password = document.querySelector("#password");
 
 signInForm.addEventListener("submit", async event => {
   event.preventDefault();
+  // When username & password valid, simulate form submit to backend
   if (validateInput()) {
     let response = await fetch("login", {
       method: "post",
@@ -42,6 +43,7 @@ signInForm.addEventListener("submit", async event => {
     });
     let result = await response.json();
 
+    // If user exists, redirect to home page. If not, show error.
     if(result.isValid) {
       window.location.replace("home");
     } else {
@@ -50,16 +52,18 @@ signInForm.addEventListener("submit", async event => {
   }
 })
 
+// Clear error when user press key.
 username.addEventListener("keypress", () => {
   clearError(username);
-})
-
+});
 password.addEventListener("keypress", () => {
   clearError(password);
-})
+});
 
+// Use to validate username & password input field
 function validateInput() {
 
+  // Clear error from previous validation
   clearError(username);
   clearError(password);
 
@@ -68,14 +72,28 @@ function validateInput() {
   let usernameValue = username.value.trim();
   let passwordValue = password.value.trim();
 
-  if (usernameValue.length < 3) {
-    setError(username, "Username must longer than 3 characters.");
+  // Username valid if not empty & has valid email format.
+  if (usernameValue.length < 1) {
+    setError(username, "Username cannot be empty.");
     isValid = false;
+  } else {
+    let emailRegex = /^[A-z0-9_a-z]+@[A-Z0-9\.a-z]+\.[A-Za-z]{2,6}$/;
+    if (!usernameValue.match(emailRegex)) {
+      setError(username, "Invalid email, the email must have format such as: example@gmail.com");
+      isValid = false;
+    }
   }
 
-  if (passwordValue.length < 3) {
-    setError(password, "Password must longer than 3 characters.");
+  // Password valid if not empty and has only character, number or _!@#$%^&*
+  if (passwordValue.length < 1) {
+    setError(password, "Password cannot be empty.");
     isValid = false;
+  } else {
+    let passwordRegex = /^[a-zA-Z0-9_!@#$%^&*]+$/
+    if (!passwordValue.match(passwordRegex)) {
+      setError(password, "Invalid character(s). Password can contain only number, character and _!@#$%^&*");
+      isValid = false;
+    }
   }
 
   return isValid;

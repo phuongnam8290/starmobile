@@ -20,7 +20,10 @@
           <input type="password" name="password" id="password" placeholder="Password" class="form-control">
           <p class="error-msg"></p>
         </div>
-        <a href="#" class="mb-4 d-block">Forgot your password?</a>
+        <div class="mb-4">
+          <input type="checkbox" name="remember" id="remember"/>
+          <label for="remember" class="ml-1">Remember me?</label>
+        </div>
         <input type="submit" value="Sign in" class="btn">
       </form>
     </div>
