@@ -23,13 +23,28 @@ function toggleSignInModal() {
 
 
 /*-------------------------------------------------------------
-Validate Sign In modal
+Sign-in modal
 ---------------------------------------------------------------*/
 
 let signInForm = document.querySelector(".sign-in-form");
 let username = document.querySelector("#username");
 let password = document.querySelector("#password");
+let remember = document.querySelector("#remember");
 
+// Populate username input field based on remember me checkbox
+loginLink.addEventListener("click", () => {
+  let rememberValue = getCookie("remember");
+  if (rememberValue === 'remember') {
+    username.value = getCookie("username")
+    remember.checked = true;
+  } else {
+    username.value = "";
+    remember.checked = false;
+  }
+});
+
+
+// Submit form
 signInForm.addEventListener("submit", async event => {
   event.preventDefault();
   // When username & password valid, simulate form submit to backend
@@ -39,7 +54,7 @@ signInForm.addEventListener("submit", async event => {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: `username=${username.value}&password=${password.value}`,
+      body: `username=${username.value}&password=${password.value}&remember=${remember.checked ? 'remember' : 'none'}`,
     });
     let result = await response.json();
 
@@ -113,4 +128,11 @@ function clearError(input) {
 
   parent.classList.remove("error");
   p.innerText = "";
+}
+
+// Get cookie value
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
 }

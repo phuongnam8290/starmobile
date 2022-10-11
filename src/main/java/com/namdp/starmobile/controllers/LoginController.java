@@ -3,10 +3,7 @@ package com.namdp.starmobile.controllers;
 import com.namdp.starmobile.entities.User;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -40,6 +37,14 @@ public class LoginController extends HttpServlet {
       HttpSession session = request.getSession();
       session.setAttribute("auth", new User(username, null));
       responseJson = "{\"isValid\": true}";
+
+      // IF remember me is checked, enable remember me. If not, disable it
+      String remember = request.getParameter("remember");
+      if(remember.equals("remember")) {
+        enableRememberMe(username, response);
+      } else {
+        disableRememberMe(response);
+      }
     } else {
       responseJson = "{\"isValid\": false, \"message\": \"Username or password does not match.\"}";
     }
@@ -50,5 +55,23 @@ public class LoginController extends HttpServlet {
     response.setCharacterEncoding("UTF-8");
     writer.print(responseJson);
     writer.flush();
+  }
+
+  private void enableRememberMe(String username, HttpServletResponse response) {
+    Cookie cUsername = new Cookie("username", username);
+    Cookie cRemember = new Cookie("remember", "remember");
+    cUsername.setMaxAge(60 * 60 * 24 * 15); // 15 days
+    cRemember.setMaxAge(60 * 60 * 24 * 15); // 15 days
+    response.addCookie(cUsername);
+    response.addCookie(cRemember);
+  }
+
+  private void disableRememberMe(HttpServletResponse response) {
+    Cookie cUsername = new Cookie("username", null);
+    Cookie cRemember = new Cookie("remember", null);
+    cUsername.setMaxAge(0);
+    cRemember.setMaxAge(0);
+    response.addCookie(cUsername);
+    response.addCookie(cRemember);
   }
 }
