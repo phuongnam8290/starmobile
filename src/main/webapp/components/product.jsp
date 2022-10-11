@@ -3,7 +3,7 @@
 
 <div class="col-lg-3 col-md-4 col-sm-6 product">
   <div class="product-pic">
-    <img src="${pageContext.request.contextPath}/static/img/product/${param.picture}" class="img-fluid">
+    <img src="${pageContext.request.contextPath}/static/img/home/product/${param.picture}" class="img-fluid">
     <div class="label new">New</div>
     <ul class="product-hover">
       <li>
