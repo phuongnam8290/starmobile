@@ -1,29 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-section {
-  padding: 5rem 0;
-}
-
-a, a:hover, a:focus {
-  text-decoration: none !important;
-  outline: none;
-}
-
-li {
-  list-style-type: none;
-}
-
-/*-----------------------------------------------------------------------
---------------------------------  HEADER  -------------------------------
--------------------------------------------------------------------------*/
-
+/* Header */
 .btn-custom,
 .btn-custom:active:focus {
   color: #fff !important;
@@ -116,11 +91,9 @@ li {
 .header-menu ul li:last-child {
   margin-right: 0;
 }
+/* End of header */
 
-/*-----------------------------------------------------------------------
---------------------------------  BANNER  -------------------------------
--------------------------------------------------------------------------*/
-
+/* Banner */
 .categories {
   position: relative;
   display: grid;
@@ -222,11 +195,9 @@ li {
   background-color: #ff7200;
   content: '';
 }
+/* End of banner */
 
-/*-----------------------------------------------------------------------
---------------------------------  PRODUCTS  -----------------------------
--------------------------------------------------------------------------*/
-
+/* Products */
 .products {
   margin-bottom: -2rem;
 }
@@ -367,11 +338,9 @@ li {
 .product-text .product-price {
   font-weight: 600;
 }
+/* End of products */
 
-/*-----------------------------------------------------------------------
------------------------------  NEWSLETTER  ------------------------------
--------------------------------------------------------------------------*/
-
+/* Newsletter */
 .newsletter-area {
   background-color: #f4f4f4;
 }
@@ -414,11 +383,9 @@ li {
 .btn.submit:hover {
   background-color: #e46d0c;
 }
+/* End of newsletter */
 
-/*-----------------------------------------------------------------------
---------------------------------  FOOTER  -------------------------------
--------------------------------------------------------------------------*/
-
+/* Footer */
 .footer .footer-logo {
   margin-bottom: 1rem;
 }
@@ -484,10 +451,9 @@ footer a,
 footer a:hover {
   color: #ff7200;
 }
+/* End of footer */
 
-/*-----------------------------------------------------------------------
---------------------------------  SIGN-IN  ------------------------------
--------------------------------------------------------------------------*/
+/* Sign-in modal */
 body.custom-modal-open {
   overflow: hidden;
 }
@@ -513,7 +479,7 @@ body.custom-modal-open {
 }
 
 .sign-in-img {
-  background: url("/template/img/signin/01.jpg") no-repeat center/cover;
+  background: url("/template/img/home/signin/01.jpg") no-repeat center/cover;
 }
 
 .sign-in-form {
@@ -601,3 +567,4 @@ body.custom-modal-open {
   color: #ca1515;
   height: 1rem;
 }
+/* End of sign-in modal */
