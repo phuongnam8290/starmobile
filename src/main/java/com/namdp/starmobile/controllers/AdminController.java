@@ -18,7 +18,7 @@ public class AdminController extends HttpServlet {
       return;
     }
 
-    request.getRequestDispatcher("/WEB-INF/pages/admin.jsp").forward(request, response);
+    getServletContext().getRequestDispatcher("/WEB-INF/pages/admin.jsp").forward(request, response);
   }
 
   @Override

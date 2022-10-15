@@ -92,7 +92,7 @@ function validateInput() {
     setError(username, "Username cannot be empty.");
     isValid = false;
   } else {
-    let emailRegex = /^[A-z0-9_a-z]+@[A-Z0-9\.a-z]+\.[A-Za-z]{2,6}$/;
+    let emailRegex = /^[A-z0-9_a-z]+@[A-Z0-9.a-z]+\.[A-Za-z]{2,6}$/;
     if (!usernameValue.match(emailRegex)) {
       setError(username, "Invalid email, the email must have format such as: example@gmail.com");
       isValid = false;
