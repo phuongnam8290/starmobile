@@ -1,26 +1,10 @@
 /* Header */
-.btn-custom,
-.btn-custom:active:focus {
-  color: #fff !important;
-  background-color: #ff7200 !important;
-  border-color: #ff7200 !important;
-  box-shadow: none !important;
-}
-
-.btn-custom:hover {
-  color: #ff7200 !important;
-  background-color: #fff !important;
-  border-color: #ff7200 !important;
-  box-shadow: none !important;
-}
-
 .header-logo {
   flex: 0 0 300px;
   margin-bottom: -.7rem;
 }
 
 .header-logo a {
-  color: #000;
   font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: 700;
@@ -28,7 +12,7 @@
 }
 
 .header-logo a span {
-  color: #ff7200;
+  color: var(--primary-color);
   font-size: 2rem;
 }
 
@@ -37,17 +21,12 @@
 }
 
 .header-search input[type=text]:focus {
-  border-color: #ff7200 !important;
+  border-color: var(--primary-color) !important;
   box-shadow: none !important;
 }
 
 .header-auth {
   flex: 0 0 300px;
-}
-
-.header-auth a,
-.header-auth span {
-  color: #666666;
 }
 
 .header-auth a:hover {
@@ -63,7 +42,6 @@
 }
 
 .header-menu ul li a {
-  color: #000;
   font-size: 1.1rem;
   font-weight: 500;
   display: block;
@@ -78,7 +56,7 @@
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: #ff7200;
+  background-color: var(--primary-color);
   transition: all 0.5s;
   transform: scale(0);
 }
@@ -159,7 +137,7 @@
   position: absolute;
   left: 3rem;
   max-width: 50%;
-  color: #fff;
+  color: var(--text-inverted-color);
   align-self: center;
 }
 
@@ -178,7 +156,7 @@
 
 .categories-text a {
   font-size: 14px;
-  color: #fff;
+  color: var(--text-inverted-color);
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
@@ -192,7 +170,7 @@
   bottom: 0;
   height: 2px;
   width: 100%;
-  background-color: #ff7200;
+  background-color: var(--primary-color);
   content: '';
 }
 /* End of banner */
@@ -221,7 +199,7 @@
   bottom: -4px;
   height: 2px;
   width: 30%;
-  background-color: #ca1515;
+  background-color: var(--primary-color);
 }
 
 .product {
@@ -236,7 +214,7 @@
 .product-pic .label {
   position: absolute;
   font-size: .8rem;
-  color: #ffffff;
+  color: var(--text-inverted-color);
   font-weight: 500;
   display: inline-block;
   padding: 2px 8px;
@@ -246,7 +224,7 @@
 }
 
 .product-pic .label.new {
-  background-color: #ff7200;
+  background-color: var(--primary-color);
 }
 
 .product-hover {
@@ -268,19 +246,18 @@
   top: 100px;
   width: 45px;
   height: 45px;
-  background-color: #ffffff;
+  background-color: var(--background-lighter-color);
   border-radius: 50px;
   box-shadow: 0 0 25px rgb(24 24 24 / 40%);
   opacity: 0;
 }
 
 .product-hover li:hover {
-  background-color: #ff7200;
+  background-color: var(--primary-color);
 }
 
 .product-hover li a {
   font-size: 1.1rem;
-  color: #000;
 }
 
 .product-hover li i {
@@ -289,7 +266,7 @@
 }
 
 .product-hover li:hover i {
-  color: #fff;
+  color: var(--text-inverted-color);
   transform: rotate(360deg);
 }
 
@@ -322,17 +299,13 @@
   margin-top: 1.5rem;
 }
 
-.product-text a {
-  color: #000;
-}
-
 .product-text .rating {
   margin: .5rem 0;
 }
 
 .product-text .rating i {
   font-size: 1.5rem;
-  color: #e3c01c;
+  color: var(--rating-color);
 }
 
 .product-text .product-price {
@@ -342,7 +315,7 @@
 
 /* Newsletter */
 .newsletter-area {
-  background-color: #f4f4f4;
+  background-color: var(--background-color);
 }
 
 .newsletter-area p,
@@ -354,13 +327,13 @@
 .newsletter-area p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  color: #777;
+  color: var(--text-lighter-color);
   font-weight: 600;
 }
 
 .subscribe-form input {
   padding: 1.5rem;
-  color: #495057;
+  color: var(--text-lighter-color);
   border-radius: 50px;
   border: none;
   outline: none;
@@ -369,8 +342,8 @@
 }
 
 .btn.submit {
-  background-color: #ff7200;
-  color: #ffffff;
+  background-color: var(--primary-color);
+  color: var(--text-inverted-color);
   padding: .7rem 3rem;
   text-transform: uppercase;
   border-radius: 50px;
@@ -381,7 +354,7 @@
 }
 
 .btn.submit:hover {
-  background-color: #e46d0c;
+  background-color: var(--primary-darker-color);
 }
 /* End of newsletter */
 
@@ -392,11 +365,10 @@
 
 .footer .footer-logo a {
   font-size: 2rem;
-  color: #000;
 }
 
 .footer .footer-logo a span {
-  color: #ff7200;
+  color: var(--primary-color);
   font-weight: 700;
 }
 
@@ -409,8 +381,8 @@
   height: 40px;
   width: 40px;
   display: inline-block;
-  background-color: #ff7200;
-  color: #ffffff;
+  background-color: var(--primary-color);
+  color: var(--text-inverted-color);
   line-height: 40px;
   text-align: center;
   border-radius: 10%;
@@ -419,8 +391,7 @@
 }
 
 .footer .footer-social a:hover {
-  background-color: #e46d0c;
-  color: #ffffff;
+  background-color: var(--primary-darker-color);
 }
 
 .footer .footer-social a:last-child {
@@ -428,7 +399,6 @@
 }
 
 .footer .footer-widget h6 {
-  color: #111;
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -440,16 +410,16 @@
 
 .footer .footer-widget a {
   font-size: .9rem;
-  color: #666;
+  color: var(--text-lighter-color);
 }
 
 footer {
-  background-color: #f4f4f4;
+  background-color: var(--background-color);
 }
 
 footer a,
 footer a:hover {
-  color: #ff7200;
+  color: var(--primary-color);
 }
 /* End of footer */
 
@@ -474,7 +444,7 @@ body.custom-modal-open {
 
 .sign-in-modal {
   width: 50%;
-  background-color: #f4f4f4;
+  background-color: var(--background-color);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
@@ -500,12 +470,12 @@ body.custom-modal-open {
 }
 
 .sign-in-socials a {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   display: inline-block;
-  background-color: #ff7200;
-  color: #ffffff;
-  line-height: 30px;
+  background-color: var(--primary-color);
+  color: var(--text-inverted-color);
+  line-height: 40px;
   text-align: center;
   border-radius: 10%;
   margin-right: .5rem;
@@ -513,8 +483,7 @@ body.custom-modal-open {
 }
 
 .sign-in-socials a:hover {
-  background-color: #e46d0c;
-  color: #ffffff;
+  background-color: var(--primary-darker-color);
 }
 
 .sign-in-form .custom-input-group {
@@ -524,7 +493,6 @@ body.custom-modal-open {
 .sign-in-form input[type="text"],
 .sign-in-form input[type="password"] {
   padding: 1.5rem 1rem;
-  color: #495057;
   border: 2px solid transparent;
   border-radius: 10px;
   outline: none;
@@ -533,7 +501,7 @@ body.custom-modal-open {
 
 .sign-in-form input[type="text"]:focus,
 .sign-in-form input[type="password"]:focus {
-  border: 2px solid #ff7200;
+  border: 2px solid var(--primary-color);
   box-shadow: none;
 }
 
@@ -541,22 +509,7 @@ body.custom-modal-open {
 .sign-in-form .custom-input-group.error input[type="password"],
 .sign-in-form .custom-input-group.error input[type="text"]:focus,
 .sign-in-form .custom-input-group.error input[type="password"]:focus {
-  border: 2px solid #ca1515;
-}
-
-.sign-in-form input[type="submit"],
-.sign-in-form input[type="submit"]:focus:active {
-  color: #fff !important;
-  background-color: #ff7200 !important;
-  border-color: #ff7200 !important;
-  box-shadow: none !important;
-}
-
-.sign-in-form input[type="submit"]:hover {
-  color: #ff7200 !important;
-  background-color: #fff !important;
-  border-color: #ff7200 !important;
-  box-shadow: none !important;
+  border: 2px solid var(--error-color);
 }
 
 .sign-in-form .error-msg {
@@ -564,7 +517,7 @@ body.custom-modal-open {
   padding-left: 1rem;
   text-align: left;
   font-size: .8rem;
-  color: #ca1515;
+  color: var(--error-color);
   height: 1rem;
 }
 /* End of sign-in modal */

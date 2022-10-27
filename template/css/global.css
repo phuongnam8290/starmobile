@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+  --primary-color: #ff7200;
+  --primary-darker-color: #e46d0c;
+  --background-color: #f4f4f4;
+  --background-lighter-color: #fff;
+  --rating-color: #e3c01c;
+  --error-color: #ca1515;
+  --text-color: #000;
+  --text-lighter-color: #777;
+  --text-inverted-color: #fff;
+
+  --card-shadow: 1px 2px 5px #999;
+  --card-hover-shadow: 2px 3px 15px #999;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,10 +27,26 @@ section {
 }
 
 a, a:hover, a:focus {
+  color: var(--text-color);
   text-decoration: none !important;
   outline: none;
 }
 
 li {
   list-style-type: none;
+}
+
+.btn-custom,
+.btn-custom:active:focus {
+  color: var(--text-inverted-color) !important;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+.btn-custom:hover {
+  color: var(--primary-color) !important;
+  background-color: var(--background-lighter-color) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: none !important;
 }
