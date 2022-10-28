@@ -41,7 +41,7 @@ body {
 }
 
 .current:hover {
-  background-color: var(--primary-darker-color);
+  background-color: var(--primary-dark-color);
   border-radius: 7px;
   box-shadow: 2px 5px 20px #111;
   transform: translateY(-1px);
@@ -58,7 +58,7 @@ body {
 }
 
 .top-navbar .sign-out-btn:hover {
-  background-color: var(--primary-darker-color);
+  background-color: var(--primary-dark-color);
 }
 
 @media (max-width: 768px) {

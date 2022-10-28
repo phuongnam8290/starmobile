@@ -2,17 +2,20 @@
 
 :root {
   --primary-color: #ff7200;
-  --primary-darker-color: #e46d0c;
-  --background-color: #f4f4f4;
-  --background-lighter-color: #fff;
+  --primary-dark-color: #e46d0c;
+  --primary-light-color: #e3dcd4;
+  --background-color: #f5f5f5;
+  --background-light-color: #fff;
   --rating-color: #e3c01c;
   --error-color: #ca1515;
   --text-color: #000;
-  --text-lighter-color: #777;
+  --text-light-color: #777;
   --text-inverted-color: #fff;
 
   --card-shadow: 1px 2px 5px #999;
   --card-hover-shadow: 2px 3px 15px #999;
+  --product-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+  --banner-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
 
 * {
@@ -20,6 +23,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
 }
 
 section {
@@ -46,7 +53,72 @@ li {
 
 .btn-custom:hover {
   color: var(--primary-color) !important;
-  background-color: var(--background-lighter-color) !important;
+  background-color: var(--background-light-color) !important;
   border-color: var(--primary-color) !important;
   box-shadow: none !important;
+}
+
+.btn-static {
+  color: var(--text-inverted-color) !important;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+.btn-static:hover,
+.btn-static:active:focus {
+  background-color: var(--primary-dark-color) !important;
+}
+
+.page-link {
+  color: var(--primary-color);
+}
+
+.page-link:hover {
+  color: var(--primary-color);
+  background-color: var(--primary-light-color);
+  border-color: var(--primary-light-color);
+}
+
+.page-link:focus {
+  box-shadow: none;
+  color: var(--primary-color);
+}
+
+.page-item.active .page-link {
+  color: var(--text-inverted-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.spin-animate {
+  position: relative;
+  padding: 3px;
+  /*margin-bottom: 2rem;*/
+  overflow: hidden;
+}
+
+.spin-animate::before {
+  content: '';
+  width: 50%;
+  height: 150%;
+  position: absolute;
+  top: -25%;
+  left: 25%;
+  background: transparent;
+}
+
+.spin-animate:hover::before {
+  background: var(--primary-dark-color);
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
