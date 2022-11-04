@@ -125,7 +125,6 @@
 .product-list .product {
   position: relative;
   padding: 2rem 1rem;
-  /*margin-bottom: 2rem;*/
   background-color: var(--background-light-color);
   border-radius: 5px;
   box-shadow: var(--product-shadow);
