@@ -1,4 +1,8 @@
 /* Footer */
+.footer {
+  border-top: 3px solid var(--primary-color);
+}
+
 .footer .footer-logo {
   margin-bottom: 1rem;
 }

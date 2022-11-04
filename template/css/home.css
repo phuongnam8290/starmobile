@@ -111,28 +111,6 @@
   background-color: var(--background-color);
 }
 
-.products .section-title {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 3rem;
-}
-
-.products .section-title h4 {
-  font-weight: 600;
-  text-transform: uppercase;
-  position: relative;
-}
-
-.products .section-title h4:after {
-  position: absolute;
-  content: '';
-  left: 0;
-  bottom: -4px;
-  height: 2px;
-  width: 30%;
-  background-color: var(--primary-color);
-}
-
 @media only screen and (min-width: 576px) {
   .product-list {
     margin-left: -30px;
@@ -275,7 +253,6 @@
 /* Newsletter */
 .newsletter-area {
   background-color: var(--background-color);
-  border-bottom: 3px solid var(--primary-color);
 }
 
 .newsletter-area p,

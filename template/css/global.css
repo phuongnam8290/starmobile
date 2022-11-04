@@ -94,7 +94,6 @@ li {
 .spin-animate {
   position: relative;
   padding: 3px;
-  /*margin-bottom: 2rem;*/
   overflow: hidden;
 }
 
@@ -121,4 +120,26 @@ li {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.section-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h4 {
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.section-title h4:after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 30%;
+  background-color: var(--primary-color);
 }
