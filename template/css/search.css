@@ -180,5 +180,5 @@
 .no-result button {
   font-size: 1.5rem;
   padding: .5rem 2rem;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
