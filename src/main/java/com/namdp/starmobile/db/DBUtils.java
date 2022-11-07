@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtils {
-  private static final String JNDIName = "java:/comp/env/jdbc/mobile";
+  private static final String JNDIName = "java:/comp/env/jdbc/Starmobile";
 
   public static <T> List<T> retrieveData(String sql,
                                          SQLCheckedConsumer<PreparedStatement> setStatementParameters,

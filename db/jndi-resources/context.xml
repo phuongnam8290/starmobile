@@ -28,7 +28,7 @@
     <Manager pathname="" />
     -->
 
-    <ResourceLink name="jdbc/mobile" 
+    <ResourceLink name="jdbc/Starmobile"
                   global="jdbc/Starmobile" 
                   auth="container" 
                   type="javax.sql.DataSource"/>

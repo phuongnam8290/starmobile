@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+  --primary-color: #ff7200;
+  --primary-dark-color: #e46d0c;
+  --primary-light-color: #e3dcd4;
+  --background-color: #f5f5f5;
+  --background-light-color: #fff;
+  --rating-color: #e3c01c;
+  --error-color: #ca1515;
+  --text-color: #000;
+  --text-light-color: #777;
+  --text-inverted-color: #fff;
+
+  --card-shadow: 1px 2px 5px #999;
+  --card-hover-shadow: 2px 3px 15px #999;
+  --product-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+  --banner-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,15 +25,69 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body {
+  background-color: var(--background-color);
+}
+
 section {
   padding: 5rem 0;
 }
 
 a, a:hover, a:focus {
+  color: var(--text-color);
   text-decoration: none !important;
   outline: none;
 }
 
 li {
   list-style-type: none;
+}
+
+.btn-custom,
+.btn-custom:active:focus {
+  color: var(--text-inverted-color) !important;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+.btn-custom:hover {
+  color: var(--primary-color) !important;
+  background-color: var(--background-light-color) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+.btn-static {
+  color: var(--text-inverted-color) !important;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+.btn-static:hover,
+.btn-static:active:focus {
+  background-color: var(--primary-dark-color) !important;
+}
+
+.section-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h4 {
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.section-title h4:after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 30%;
+  background-color: var(--primary-color);
 }

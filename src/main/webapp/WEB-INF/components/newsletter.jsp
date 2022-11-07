@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/newsletter.css">
+
+<!-- Newsletter -->
 <section class="newsletter-area">
   <div class="container">
     <p class="text-center">
@@ -14,3 +17,4 @@
     </form>
   </div>
 </section>
+<!-- End of newsletter -->

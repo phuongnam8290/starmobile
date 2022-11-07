@@ -1,0 +1,44 @@
+/* Newsletter */
+.newsletter-area {
+  background-color: var(--background-color);
+}
+
+.newsletter-area p,
+.newsletter-area form {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.newsletter-area p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--text-light-color);
+  font-weight: 600;
+}
+
+.subscribe-form input {
+  padding: 1.5rem;
+  color: var(--text-light-color);
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  letter-spacing: 2px;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn.submit {
+  background-color: var(--primary-color);
+  color: var(--text-inverted-color);
+  padding: .7rem 3rem;
+  text-transform: uppercase;
+  border-radius: 50px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.15);
+  transition: all .3s;
+}
+
+.btn.submit:hover {
+  background-color: var(--primary-dark-color);
+}
+/* End of newsletter */

@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/banner.css">
+
 <section class="categories">
   <div class="categories-item item-1">
     <img src="${pageContext.request.contextPath}/static/img/home/banner/01.jpg" class="img-fluid">

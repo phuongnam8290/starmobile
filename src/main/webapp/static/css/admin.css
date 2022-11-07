@@ -1,5 +1,5 @@
 body {
-  background-color: #eee;
+  background-color: var(--background-color);
 }
 
 /* Navbar */
@@ -20,11 +20,11 @@ body {
 .sidebar .profile .welcome-msg {
   margin-top: 1rem;
   font-size: 1.5rem;
-  color: #ffffff;
+  color: var(--text-inverted-color);
 }
 
 .sidebar-link {
-  color: #ffffff !important;
+  color: var(--text-inverted-color) !important;
   transition: all .4s;
 }
 
@@ -34,14 +34,14 @@ body {
 }
 
 .current {
-  background-color: #ff7200;
+  background-color: var(--primary-color);
   border-radius: 7px;
   box-shadow: 2px 5px 10px #111;
   transition: all .3s;
 }
 
 .current:hover {
-  background-color: #e46d0c;
+  background-color: var(--primary-dark-color);
   border-radius: 7px;
   box-shadow: 2px 5px 20px #111;
   transform: translateY(-1px);
@@ -52,13 +52,13 @@ body {
 }
 
 .top-navbar .sign-out-btn {
-  background-color: #ff7200;
+  background-color: var(--primary-color);
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--text-inverted-color);
 }
 
 .top-navbar .sign-out-btn:hover {
-  background-color: #e46d0c;
+  background-color: var(--primary-dark-color);
 }
 
 @media (max-width: 768px) {
@@ -76,12 +76,12 @@ body {
 
 /* Cards */
 .card-common {
-  box-shadow: 1px 2px 5px #999;
+  box-shadow: var(--card-shadow);
   transition: all .4s;
 }
 
 .card-common:hover {
-  box-shadow: 2px 3px 15px #999;
+  box-shadow: var(--card-hover-shadow);
   transform: translateY(-1px);
 }
 /* End of cards */

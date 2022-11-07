@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/sign-in.css">
+
 <div class="d-none modal-overlay" id="sign-in-overlay">
   <div class="sign-in-modal">
     <div class="row">
@@ -29,3 +31,5 @@
     </div>
   </div>
 </div>
+
+<script src="${pageContext.request.contextPath}/static/js/sign-in.js"></script>

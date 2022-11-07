@@ -1,0 +1,98 @@
+/* Sign-in modal */
+body.custom-modal-open {
+  overflow: hidden;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.sign-in-modal {
+  width: 50%;
+  background-color: var(--background-color);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.sign-in-img {
+  background: url("../img/signin/01.jpg") no-repeat center/cover;
+}
+
+.sign-in-form {
+  padding: 2rem 3rem;
+  text-align: center;
+}
+
+.sign-in-form h1 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sign-in-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.sign-in-socials a {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--text-inverted-color);
+  line-height: 40px;
+  text-align: center;
+  border-radius: 10%;
+  margin-right: .5rem;
+  transition: all .5s;
+}
+
+.sign-in-socials a:hover {
+  background-color: var(--primary-dark-color);
+}
+
+.sign-in-form .custom-input-group {
+  margin-bottom: 1rem;
+}
+
+.sign-in-form input[type="text"],
+.sign-in-form input[type="password"] {
+  padding: 1.5rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  width: 100%;
+}
+
+.sign-in-form input[type="text"]:focus,
+.sign-in-form input[type="password"]:focus {
+  border: 2px solid var(--primary-color);
+  box-shadow: none;
+}
+
+.sign-in-form .custom-input-group.error input[type="text"],
+.sign-in-form .custom-input-group.error input[type="password"],
+.sign-in-form .custom-input-group.error input[type="text"]:focus,
+.sign-in-form .custom-input-group.error input[type="password"]:focus {
+  border: 2px solid var(--error-color);
+}
+
+.sign-in-form .error-msg {
+  margin-top: .5rem;
+  padding-left: 1rem;
+  text-align: left;
+  font-size: .8rem;
+  color: var(--error-color);
+  height: 1rem;
+}
+/* End of sign-in modal */

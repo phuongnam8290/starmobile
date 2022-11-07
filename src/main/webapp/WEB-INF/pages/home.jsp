@@ -11,15 +11,15 @@
           integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/global.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/home.css">
 </head>
 <body>
 <jsp:include page="../components/header.jsp" />
 <jsp:include page="../components/banner.jsp" />
-<jsp:include page="../components/products.jsp" />
+<jsp:include page="../components/product-list.jsp">
+    <jsp:param name="title" value="product list"/>
+</jsp:include>
 <jsp:include page="../components/newsletter.jsp" />
 <jsp:include page="../components/footer.jsp" />
-<jsp:include page="../components/sign-in-form.jsp" />
 
 
 <!-- jQuery library -->
@@ -31,6 +31,5 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="${pageContext.request.contextPath}/static/js/script.js"></script>
 </body>
 </html>

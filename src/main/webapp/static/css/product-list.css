@@ -1,0 +1,36 @@
+.products {
+  margin-bottom: -5rem;
+  background-color: var(--background-color);
+}
+
+@media only screen and (min-width: 576px) {
+  .product-list {
+    margin-left: -30px;
+    margin-right: -30px
+  }
+}
+
+.product-list > div {
+  margin-bottom: 2rem;
+}
+
+.page-link {
+  color: var(--primary-color);
+}
+
+.page-link:hover {
+  color: var(--primary-color);
+  background-color: var(--primary-light-color);
+  border-color: var(--primary-light-color);
+}
+
+.page-link:focus {
+  box-shadow: none;
+  color: var(--primary-color);
+}
+
+.page-item.active .page-link {
+  color: var(--text-inverted-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
