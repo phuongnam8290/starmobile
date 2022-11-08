@@ -15,6 +15,7 @@ import java.util.List;
 
 public class DBUtils {
   private static final String JNDIName = "java:/comp/env/jdbc/Starmobile";
+  public static final int PRODUCTS_PER_PAGE = 8;
 
   /**
    * Method used for connect & retrieve data from database
@@ -64,6 +65,14 @@ public class DBUtils {
     return result;
   }
 
+  /**
+   * Method use to retrieve a single value (usually the result of SUM, AVG, MIN, MAX) or a single row from db
+   *
+   * @param sql                    SQL query
+   * @param setStatementParameters Lambda function to set query's parameter
+   * @param getValue Lambda function to convert result set to value
+   * @return Converted value return by the query
+   */
   public static Object retrieveSingularValue(String sql,
                                              SQLCheckedConsumer<PreparedStatement> setStatementParameters,
                                              SQLCheckedFunction<ResultSet, Object> getValue) {
@@ -84,7 +93,7 @@ public class DBUtils {
       statement = con.prepareStatement(sql);
       setStatementParameters.accept(statement);
 
-      // Retrieve data & convert to appropriate entity list using provided function.
+      // Retrieve data & convert to appropriate value using provided function
       rs = statement.executeQuery();
       result = getValue.apply(rs);
     } catch (NamingException | SQLException ex) {

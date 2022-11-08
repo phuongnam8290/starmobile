@@ -7,6 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO {
+
+  /**
+   * Get paginated products from db.
+   *
+   * @param page           Product offset
+   * @param productPerPage Number of products per page
+   * @return List of products offset by pagination.
+   */
   public static List<Product> getProducts(int page, int productPerPage) {
     int offset = (page - 1) * productPerPage;
     String query =
@@ -41,6 +49,11 @@ public class ProductDAO {
     return productList;
   }
 
+  /**
+   * Count total number of products
+   *
+   * @return The number of products in db
+   */
   public static int countProducts() {
     String query = "SELECT COUNT(*) FROM product";
     Integer quantity = (Integer) DBUtils.retrieveSingularValue(query,
