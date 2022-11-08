@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -13,14 +15,16 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/global.css">
 </head>
 <body>
+
 <jsp:include page="../components/header.jsp" />
 <jsp:include page="../components/banner.jsp" />
+
 <jsp:include page="../components/product-list.jsp">
     <jsp:param name="title" value="product list"/>
 </jsp:include>
+
 <jsp:include page="../components/newsletter.jsp" />
 <jsp:include page="../components/footer.jsp" />
-
 
 <!-- jQuery library -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>

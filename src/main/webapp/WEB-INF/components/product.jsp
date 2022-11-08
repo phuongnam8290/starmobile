@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="custom" tagdir="/WEB-INF/tags" %>
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/product.css">
 
@@ -6,9 +8,8 @@
   <div class="spin-animate">
     <div class="product">
       <div class="product-pic">
-        <img src="${pageContext.request.contextPath}/static/img/products/${param.picture}/thumbnail.jpg"
+        <img src="${pageContext.request.contextPath}/static/img/products/${product.img}/thumbnail.jpg"
              class="img-fluid">
-        <div class="label new">New</div>
         <ul class="product-hover">
           <li>
             <a href=""><i class="fa fa-arrows-alt"></i></a>
@@ -24,15 +25,16 @@
       <div class="product-text">
         <h6>
           <a href="#">
-            <c:out value="${param.name}"/>
+            <c:out value="${product.name}"/>
           </a>
         </h6>
         <div class="rating">
-          <c:forEach begin="1" end="${param.ratings}">
-            <i class="fa fa-star"></i>
-          </c:forEach>
+          <custom:rating/>
         </div>
-        <div class="product-price">$ 59.0</div>
+        <div class="product-price">
+          <fmt:setLocale value = "vi_VN"/>
+          <fmt:formatNumber value = "${product.price}" type = "currency"/>
+        </div>
       </div>
     </div>
   </div>
