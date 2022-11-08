@@ -1,0 +1,33 @@
+.no-result {
+  height: 85vh;
+}
+
+.no-result img {
+  width: 30%;
+}
+
+@media screen and (max-width: 767px){
+  .no-result img {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+.no-result .no-result-msg {
+  font-size: 1.5rem;
+  color: gray;
+}
+
+.no-result .no-result-msg p {
+  margin: 0;
+}
+
+.no-result .no-result-msg p + p {
+  margin-top: 0;
+}
+
+.no-result a {
+  font-size: 1.5rem;
+  padding: .5rem 2rem;
+  /*text-transform: uppercase;*/
+}

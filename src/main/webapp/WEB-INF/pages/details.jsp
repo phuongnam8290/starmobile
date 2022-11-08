@@ -21,7 +21,6 @@
 
 <jsp:include page="../components/product-details.jsp"/>
 
-<jsp:include page="../components/newsletter.jsp" />
 <jsp:include page="../components/footer.jsp" />
 
 <!-- jQuery library -->

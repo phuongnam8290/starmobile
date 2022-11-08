@@ -17,18 +17,16 @@
 <body>
 
 <jsp:include page="../components/header.jsp" />
-<jsp:include page="../components/banner.jsp" />
 
-<section class="products">
-    <div class="section-title">
-        <h4>Product list</h4>
-    </div>
-    <jsp:include page="../components/product-list.jsp">
-        <jsp:param name="pagination" value="true"/>
-    </jsp:include>
-</section>
+<c:choose>
+    <c:when test="${requestScope.numberOfProducts > 0}">
+        <jsp:include page="../components/search-result.jsp" />
+    </c:when>
+    <c:otherwise>
+        <jsp:include page="../components/search-no-result.jsp" />
+    </c:otherwise>
+</c:choose>
 
-<jsp:include page="../components/newsletter.jsp" />
 <jsp:include page="../components/footer.jsp" />
 
 <!-- jQuery library -->

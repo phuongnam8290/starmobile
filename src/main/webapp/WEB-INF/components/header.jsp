@@ -11,12 +11,13 @@
       <div class="header-logo">
         <a href="${pageContext.request.contextPath}/home"><span>Star</span>mobile</a>
       </div>
-      <div class="input-group header-search">
-        <input type="text" class="form-control" placeholder="Type anything here">
+      <form method="get" action="${pageContext.request.contextPath}/search"
+            class="input-group header-search">
+        <input type="text" name="query" class="form-control" placeholder="Type anything here" required>
         <div class="input-group-append">
-          <button class="btn btn-static" type="button">Search</button>
+          <button class="btn btn-static" type="submit">Search</button>
         </div>
-      </div>
+      </form>
 
       <div class="d-flex justify-content-end header-auth">
         <c:if test="${sessionScope.auth == null}">
