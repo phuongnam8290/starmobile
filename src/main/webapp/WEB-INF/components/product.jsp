@@ -24,7 +24,7 @@
       </div>
       <div class="product-text">
         <h6>
-          <a href="#">
+          <a href="${pageContext.request.contextPath}/details?id=${product.id}">
             <c:out value="${product.name}"/>
           </a>
         </h6>

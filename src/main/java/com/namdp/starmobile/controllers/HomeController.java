@@ -31,7 +31,7 @@ public class HomeController extends HttpServlet {
       currentPage = 1;
     }
 
-    List<Product> productList = ProductDAO.getProducts(currentPage, PRODUCTS_PER_PAGE);
+    List<Product> productList = ProductDAO.getPaginatedProducts(currentPage, PRODUCTS_PER_PAGE);
 
     // Attribute to populate the product list
     request.setAttribute("productList", productList);

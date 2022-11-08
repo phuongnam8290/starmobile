@@ -9,7 +9,7 @@
     <!--  Header-top  -->
     <div class="d-flex align-items-end mb-4 header-top">
       <div class="header-logo">
-        <a href="#"><span>Star</span>mobile</a>
+        <a href="${pageContext.request.contextPath}/home"><span>Star</span>mobile</a>
       </div>
       <div class="input-group header-search">
         <input type="text" class="form-control" placeholder="Type anything here">
