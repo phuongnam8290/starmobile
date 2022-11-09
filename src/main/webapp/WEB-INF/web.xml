@@ -41,6 +41,14 @@
     <servlet-name>SearchController</servlet-name>
     <servlet-class>com.namdp.starmobile.controllers.SearchController</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>CartItemController</servlet-name>
+    <servlet-class>com.namdp.starmobile.controllers.CartItemController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CarController</servlet-name>
+    <servlet-class>com.namdp.starmobile.controllers.CartController</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>HomeController</servlet-name>
@@ -65,5 +73,13 @@
   <servlet-mapping>
     <servlet-name>SearchController</servlet-name>
     <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CarController</servlet-name>
+    <url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CartItemController</servlet-name>
+    <url-pattern>/cart/product</url-pattern>
   </servlet-mapping>
 </web-app>

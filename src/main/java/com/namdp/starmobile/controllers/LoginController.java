@@ -38,6 +38,8 @@ public class LoginController extends HttpServlet {
       session.setAttribute("auth", new User(username, null));
       responseJson = "{\"isValid\": true}";
 
+      // Search db to see if user has pending order. If order exist, add order info to session
+
       // IF remember me is checked, enable remember me. If not, disable it
       String remember = request.getParameter("remember");
       if(remember.equals("remember")) {
