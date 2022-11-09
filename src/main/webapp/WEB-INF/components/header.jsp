@@ -19,18 +19,38 @@
         </div>
       </form>
 
-      <div class="d-flex justify-content-end header-auth">
-        <c:if test="${sessionScope.auth == null}">
+      <c:if test="${sessionScope.auth == null}">
+        <div class="d-flex justify-content-end header-auth">
           <a href="#" class="login">Login</a>
           <span>/</span>
           <a href="#">Register</a>
-        </c:if>
+        </div>
+      </c:if>
 
-        <c:if test="${sessionScope.auth != null}">
-          <a href="#">Hello, ${sessionScope.auth.username}</a>
-        </c:if>
-
-      </div>
+      <c:if test="${sessionScope.auth != null}">
+        <div class="d-flex align-items-baseline header-user">
+          <div class="user-cart">
+            <a href="${pageContext.request.contextPath}/cart">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="user-info">
+            <c:if test="${sessionScope.auth.role.name=='user'}">
+              <a href="#">Hello, ${sessionScope.auth.displayName}</a>
+            </c:if>
+            <c:if test="${sessionScope.auth.role.name=='admin'}">
+              <a href="${pageContext.request.contextPath}/admin">
+                Hello, ${sessionScope.auth.displayName}
+              </a>
+            </c:if>
+          </div>
+          <div class="user-logout">
+            <a href="${pageContext.request.contextPath}/logout">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </c:if>
     </div>
     <!--  End of header-top  -->
 

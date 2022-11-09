@@ -12,8 +12,8 @@ public class AdminController extends HttpServlet {
     HttpSession session = request.getSession();
     User auth = (User)session.getAttribute("auth");
 
-    // Redirect to home page if user not authenticated
-    if(auth == null) {
+    // Redirect to home page if user not authenticated or not an admin
+    if(auth == null || !auth.getRole().getName().equals("admin")) {
       response.sendRedirect(getServletContext().getContextPath() + "/home");
       return;
     }

@@ -27,7 +27,7 @@ Sign-in modal
 ---------------------------------------------------------------*/
 
 let signInForm = document.querySelector(".sign-in-form");
-let username = document.querySelector("#username");
+let email = document.querySelector("#email");
 let password = document.querySelector("#password");
 let remember = document.querySelector("#remember");
 
@@ -35,10 +35,10 @@ let remember = document.querySelector("#remember");
 loginLink.addEventListener("click", () => {
   let rememberValue = getCookie("remember");
   if (rememberValue === 'remember') {
-    username.value = getCookie("username")
+    email.value = getCookie("email")
     remember.checked = true;
   } else {
-    username.value = "";
+    email.value = "";
     remember.checked = false;
   }
 });
@@ -54,22 +54,22 @@ signInForm.addEventListener("submit", async event => {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: `username=${username.value}&password=${password.value}&remember=${remember.checked ? 'remember' : 'none'}`,
+      body: `email=${email.value}&password=${password.value}&remember=${remember.checked ? 'remember' : 'none'}`,
     });
     let result = await response.json();
 
-    // If user exists, redirect to admin page. If not, show error.
+    // If user exists, redirect to home page. If not, show error.
     if(result.isValid) {
-      window.location.replace("admin");
+      window.location.replace("home");
     } else {
-      setError(username, result.message);
+      setError(email, result.message);
     }
   }
 })
 
 // Clear error when user press key.
-username.addEventListener("keypress", () => {
-  clearError(username);
+email.addEventListener("keypress", () => {
+  clearError(email);
 });
 password.addEventListener("keypress", () => {
   clearError(password);
@@ -79,22 +79,22 @@ password.addEventListener("keypress", () => {
 function validateInput() {
 
   // Clear error from previous validation
-  clearError(username);
+  clearError(email);
   clearError(password);
 
   let isValid = true;
 
-  let usernameValue = username.value.trim();
+  let emailValue = email.value.trim();
   let passwordValue = password.value.trim();
 
-  // Username valid if not empty & has valid email format.
-  if (usernameValue.length < 1) {
-    setError(username, "Username cannot be empty.");
+  // Email valid if not empty & has valid email format.
+  if (emailValue.length < 1) {
+    setError(email, "Email cannot be empty.");
     isValid = false;
   } else {
     let emailRegex = /^[A-z0-9_a-z]+@[A-Z0-9.a-z]+\.[A-Za-z]{2,6}$/;
-    if (!usernameValue.match(emailRegex)) {
-      setError(username, "Invalid email, the email must have format such as: example@gmail.com");
+    if (!emailValue.match(emailRegex)) {
+      setError(email, "Invalid email, the email must have format such as: example@gmail.com");
       isValid = false;
     }
   }

@@ -1,16 +1,10 @@
 package com.namdp.starmobile.entities;
 
 public class Role {
-  private final int id;
   private final String name;
 
-  public Role(int id, String name) {
-    this.id = id;
+  public Role(String name) {
     this.name = name;
-  }
-
-  public int getId() {
-    return id;
   }
 
   public String getName() {

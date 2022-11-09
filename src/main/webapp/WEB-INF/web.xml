@@ -7,16 +7,6 @@
     <welcome-file>home</welcome-file>
   </welcome-file-list>
 
-  <context-param>
-    <param-name>username</param-name>
-    <param-value>duongdt@fpt.com.vn</param-value>
-  </context-param>
-
-  <context-param>
-    <param-name>password</param-name>
-    <param-value>123</param-value>
-  </context-param>
-
   <servlet>
     <servlet-name>HomeController</servlet-name>
     <servlet-class>com.namdp.starmobile.controllers.HomeController</servlet-class>

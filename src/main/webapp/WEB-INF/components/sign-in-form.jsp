@@ -14,7 +14,7 @@
         </ul>
 
         <div class="custom-input-group">
-          <input type="text" name="username" id="username" placeholder="Username" class="form-control"
+          <input type="text" name="email" id="email" placeholder="Email" class="form-control"
                  autocomplete="off">
           <p class="error-msg"></p>
         </div>
@@ -26,7 +26,7 @@
           <input type="checkbox" name="remember" id="remember"/>
           <label for="remember" class="ml-1">Remember me?</label>
         </div>
-        <input type="submit" value="Sign in" class="btn">
+        <input type="submit" value="Sign in" class="btn btn-custom">
       </form>
     </div>
   </div>

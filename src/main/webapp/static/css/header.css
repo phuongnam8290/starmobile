@@ -35,7 +35,10 @@ header {
 }
 
 .header-auth {
-  flex: 0 0 300px;
+  flex: 0 0 305px;
+  font-size: 1.2rem;
+  margin-bottom: -.4rem;
+  margin-left: 3rem;
 }
 
 .header-auth a,
@@ -49,6 +52,43 @@ header {
 
 .header-auth span {
   margin: 0 5px;
+}
+
+.header-user {
+  margin-bottom: -.6rem;
+  margin-left: 3rem;
+}
+
+.header-user a {
+  color: var(--text-inverted-color);
+}
+
+.header-user .user-cart,
+.header-user .user-logout {
+  font-size: 2rem;
+}
+
+.header-user .user-cart:hover,
+.header-user .user-logout:hover {
+  filter: drop-shadow(2px 2px 3px var(--primary-light-color));
+}
+
+.header-user .user-info {
+  font-size: 1.2rem;
+  margin: 0 3rem;
+  width: 150px;
+}
+
+.header-user .user-info a {
+  text-align: center;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-user .user-info:hover {
+  font-weight: 700;
 }
 
 .header-menu li {
