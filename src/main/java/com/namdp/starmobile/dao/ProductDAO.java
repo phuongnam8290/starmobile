@@ -26,7 +26,7 @@ public class ProductDAO {
             "LEFT JOIN brand b ON p.product_brand = b.brand_id " +
             "LIMIT ?, ?";
 
-    List<Product> productList = DBUtils.retrieveData(query,
+    return DBUtils.retrieveData(query,
         statement -> {
           statement.setInt(1, offset);
           statement.setInt(2, productPerPage);
@@ -42,8 +42,6 @@ public class ProductDAO {
           return list;
         }
     );
-
-    return productList;
   }
 
   /**
@@ -53,20 +51,22 @@ public class ProductDAO {
    */
   public static int countProducts() {
     String query = "SELECT COUNT(*) FROM product";
-    Integer quantity = (Integer) DBUtils.retrieveSingularValue(query,
+
+    return DBUtils.retrieveData(query,
         statement -> {
         },
         resultSet -> {
-          resultSet.next();
-          return resultSet.getInt(1);
+          if (resultSet.next()) {
+            return resultSet.getInt(1);
+          }
+          return 0;
         }
     );
-
-    return quantity;
   }
 
   /**
    * Get a single product by using product's id.
+   *
    * @param productId Product's id
    * @return The product return from db
    */
@@ -78,26 +78,23 @@ public class ProductDAO {
             "LEFT JOIN brand b ON p.product_brand = b.brand_id " +
             "WHERE p.product_id = ?";
 
-    Product result = (Product) DBUtils.retrieveSingularValue(query,
+    return DBUtils.retrieveData(query,
         statement -> {
           statement.setInt(1, productId);
         },
         resultSet -> {
-          Product product = null;
-
-          while (resultSet.next()) {
-            product = convertResultSetToProduct(resultSet);
+          if (resultSet.next()) {
+            return convertResultSetToProduct(resultSet);
           }
 
-          return product;
+          return null;
         }
     );
-
-    return result;
   }
 
   /**
    * Get all the products in the db with product's name contain the criteria string (case-insensitive)
+   *
    * @param criteria The criteria for searching
    * @return List of all product satisfy the criteria
    */
@@ -109,7 +106,7 @@ public class ProductDAO {
             "LEFT JOIN brand b ON p.product_brand = b.brand_id " +
             "WHERE LOWER(p.product_name) LIKE ?";
 
-    List<Product> productList = DBUtils.retrieveData(query,
+    return DBUtils.retrieveData(query,
         statement -> {
           statement.setString(1, "%" + criteria.toLowerCase() + "%");
         },
@@ -124,12 +121,11 @@ public class ProductDAO {
           return list;
         }
     );
-
-    return productList;
   }
 
   /**
    * Convert a given ResultSet row to a Product object.
+   *
    * @param resultSet The ResultSet to convert, must move cursor at least to the first row
    * @return The converted Product object
    * @throws SQLException

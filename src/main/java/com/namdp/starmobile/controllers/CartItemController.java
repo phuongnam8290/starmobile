@@ -8,10 +8,6 @@ import java.io.IOException;
 
 public class CartItemController extends HttpServlet {
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-  }
-
-  @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     // {
     //  product_id: number,
@@ -19,7 +15,9 @@ public class CartItemController extends HttpServlet {
     // }
 
     // Use when user add new product to order
+    // Check if quantity > 0. If not, do nothing
     // If the current user does not have pending order, create new order. Synchronize with the order in session
+    // Check if product exist in db. If not, do nothing
     // If the product already exist in the order, update the quantity. Synchronize with the order in session
   }
 
@@ -31,7 +29,9 @@ public class CartItemController extends HttpServlet {
     // }
 
     // Use when user increase / decrease quantity of the product in order.
+    // Check if quantity >= 0. If not, do nothing
     // Check if user has pending order. If not, do nothing.
+    // Check if product exist in db. If not, do nothing
     // Check if product exists in order. If not, do nothing.
     // Update order. Synchronize with the order in session
     // If quantity is 0. Remove the product from the order. After removal, check the order again. If the
@@ -51,15 +51,19 @@ public class CartItemController extends HttpServlet {
     // Synchronize with the order in session.
   }
 
-  // Check if user has pending order. Only check in session, since all order operation has been synchronized in
-  // session.
+  // Check if user has pending order. Only check in session, since session's order being synchronized after each request
   private boolean hasPendingOrder() {
     return false;
   }
 
-  // Check if product exists in order. Only check in session, since all order operation has been synchronized in
-  // session.
-  private boolean isProductExist(int productId) {
+  // Check if product exists in database. Necessary since user can send request to server without using provided ui
+  private boolean isProductExistInDb(int productId) {
+    return false;
+  }
+
+  // Check if product exists in order. Only check in session, since session's order being synchronized after each
+  // request
+  private boolean isProductExistInOrder(int productId) {
     return false;
   }
 

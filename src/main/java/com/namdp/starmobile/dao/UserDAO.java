@@ -18,14 +18,13 @@ public class UserDAO {
         "WHERE u.user_mail=? " +
         "AND u.user_password=?";
 
-    User result = (User) DBUtils.retrieveSingularValue(query,
+    return DBUtils.retrieveData(query,
         statement -> {
           statement.setString(1, email);
           statement.setString(2, password);
         },
         resultSet -> {
-          User user = null;
-          while (resultSet.next()) {
+          if (resultSet.next()) {
             String user_mail = resultSet.getString("user_mail");
             String user_name = resultSet.getString("user_name");
             String user_address = resultSet.getString("user_address");
@@ -33,13 +32,11 @@ public class UserDAO {
             String role_name = resultSet.getString("role_name");
 
             Role role = new Role(role_name);
-            user = new User(user_mail, user_name, user_address, user_phone, role);
+            return new User(user_mail, user_name, user_address, user_phone, role);
           }
 
-          return user;
+          return null;
         }
     );
-
-    return result;
   }
 }
