@@ -9,19 +9,14 @@ public class Product {
   private final double rating;
   private final Brand brand;
 
-  public Product(int id, String name, String specs, double price, String img, double rating,
-                 int brandId, String brandName, String brandImg) {
+  public Product(int id, String name, String specs, double price, String img, double rating, Brand brand) {
     this.id = id;
     this.name = name;
     this.specs = specs;
     this.price = price;
     this.img = img;
     this.rating = rating;
-    this.brand = new Brand(brandId, brandName, brandImg);
-  }
-
-  public Product(int id, String name, String specs, double price, String img, double rating) {
-    this(id, name, specs, price, img, rating, 0, "", "");
+    this.brand = brand;
   }
 
   public int getId() {

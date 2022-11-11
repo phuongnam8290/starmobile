@@ -1,6 +1,7 @@
 package com.namdp.starmobile.dao;
 
 import com.namdp.starmobile.db.DBUtils;
+import com.namdp.starmobile.entities.Brand;
 import com.namdp.starmobile.entities.Product;
 
 import java.sql.ResultSet;
@@ -79,9 +80,7 @@ public class ProductDAO {
             "WHERE p.product_id = ?";
 
     return DBUtils.retrieveData(query,
-        statement -> {
-          statement.setInt(1, productId);
-        },
+        statement -> statement.setInt(1, productId),
         resultSet -> {
           if (resultSet.next()) {
             return convertResultSetToProduct(resultSet);
@@ -141,6 +140,7 @@ public class ProductDAO {
     String brandName = resultSet.getString("brand_name");
     String brandImg = resultSet.getString("brand_img");
 
-    return new Product(id, name, spec, price, img, rating, brandId, brandName, brandImg);
+    Brand brand = new Brand(brandId, brandName, brandImg);
+    return new Product(id, name, spec, price, img, rating, brand);
   }
 }

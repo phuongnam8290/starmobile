@@ -21,13 +21,13 @@ public class DBUtils {
    *
    * @param sql                    SQL query
    * @param setStatementParameters Lambda function to set query's parameter
-   * @param convertResultSetToList Lambda function to convert result set to appropriate entity
+   * @param returnResult           Lambda function to convert result set to appropriate returned object
    * @param <T>                    Class parameter represent entity object(s)
    * @return Entity object(s) return by the query
    */
   public static <T> T retrieveData(String sql,
                                    SQLCheckedConsumer<PreparedStatement> setStatementParameters,
-                                   SQLCheckedFunction<ResultSet, T> convertResultSetToList) {
+                                   SQLCheckedFunction<ResultSet, T> returnResult) {
     T result = null;
 
     Context ctx = null;
@@ -47,7 +47,7 @@ public class DBUtils {
 
       // Retrieve data & convert to appropriate entity list using provided function.
       rs = statement.executeQuery();
-      result = convertResultSetToList.apply(rs);
+      result = returnResult.apply(rs);
     } catch (NamingException | SQLException ex) {
       ex.printStackTrace();
     } finally {
@@ -62,11 +62,13 @@ public class DBUtils {
    *
    * @param sql                    SQL Query
    * @param setStatementParameters Lambda function to set query's parameter
-   * @return Number of row affected by the query
+   * @param returnResult           Lambda function to convert result set to appropriate returned object
+   * @return The entity object(s) after being inserted / updated / delete
    */
-  public static int updateData(String sql,
-                               SQLCheckedConsumer<PreparedStatement> setStatementParameters) {
-    int affectedRow = 0;
+  public static <T> T updateData(String sql,
+                                 SQLCheckedConsumer<PreparedStatement> setStatementParameters,
+                                 SQLCheckedFunction<PreparedStatement, T> returnResult) {
+    T result = null;
 
     Context ctx = null;
     Connection con = null;
@@ -79,18 +81,26 @@ public class DBUtils {
 
       // Create prepared statement & set statement's parameter using provided function.
       con = ds.getConnection();
-      statement = con.prepareStatement(sql);
+
+      // Notify JDBC to return the key when insert
+      statement = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
       setStatementParameters.accept(statement);
 
       // Update data in database
-      affectedRow = statement.executeUpdate();
+      int affectedRow = statement.executeUpdate();
+
+      if(affectedRow != 0) {
+        // Convert to returned object
+        result = returnResult.apply(statement);
+      }
+
     } catch (NamingException | SQLException ex) {
       ex.printStackTrace();
     } finally {
       closeResources(null, statement, con, ctx);
     }
 
-    return affectedRow;
+    return result;
   }
 
   // Closing resource opened by other method

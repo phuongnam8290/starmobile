@@ -1,16 +1,26 @@
 package com.namdp.starmobile.entities;
 
 public class OrderDetail {
+  private int id;
   private Product product;
-  private Order order;
+  private int orderId;
   private int quantity;
   private double price;
 
-  public OrderDetail(Product product, Order order, int quantity, double price) {
+  public OrderDetail(int id, Product product, int orderId, int quantity, double price) {
+    this.id = id;
     this.product = product;
-    this.order = order;
+    this.orderId = orderId;
     this.quantity = quantity;
     this.price = price;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   public Product getProduct() {
@@ -21,12 +31,12 @@ public class OrderDetail {
     this.product = product;
   }
 
-  public Order getOrder() {
-    return order;
+  public int getOrderId() {
+    return orderId;
   }
 
-  public void setOrder(Order order) {
-    this.order = order;
+  public void setOrderId(int orderId) {
+    this.orderId = orderId;
   }
 
   public int getQuantity() {

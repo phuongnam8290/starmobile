@@ -1,7 +1,9 @@
 package com.namdp.starmobile.controllers;
 
+import com.namdp.starmobile.dao.OrderDAO;
 import com.namdp.starmobile.dao.UserDAO;
 import com.namdp.starmobile.db.DBUtils;
+import com.namdp.starmobile.entities.Order;
 import com.namdp.starmobile.entities.User;
 
 import javax.servlet.ServletException;
@@ -38,11 +40,12 @@ public class LoginController extends HttpServlet {
     }
     // Check if user exists in db
     else if((user = UserDAO.getUserByAuth(email, password)) != null) {
+      // Remove user password before add to session
+      user.setPassword(null);
+
       HttpSession session = request.getSession();
       session.setAttribute("auth", user);
       responseJson = "{\"isValid\": true}";
-
-      // Search db to see if user has pending order. If order exist, add order info to session
 
       // IF remember me is checked, enable remember me. If not, disable it
       String remember = request.getParameter("remember");

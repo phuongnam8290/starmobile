@@ -25,10 +25,6 @@ public class User {
     return email;
   }
 
-  public String getPassword() {
-    return password;
-  }
-
   public Role getRole() {
     return role;
   }
@@ -48,5 +44,9 @@ public class User {
   public String getDisplayName() {
     String[] names = this.name.split(" ");
     return names[names.length - 1];
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 }
