@@ -1,4 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="custom" tagdir="/WEB-INF/tags" %>
 
 <link rel="stylesheet" type="text/css"
@@ -8,7 +9,7 @@
   <div class="section-title">
     <h4>Product Details</h4>
   </div>
-  <div class="d-block d-lg-flex product-details">
+  <div class="d-block d-lg-flex product-details" id="${requestScope.product.id}">
     <div class="d-flex flex-column justify-content-between product-image">
       <img src="${pageContext.request.contextPath}/static/img/details/logo/${requestScope.product.brand.img}.png"
            class="product-logo">
@@ -53,6 +54,8 @@
             <li><button class="colors color-05"></button></li>
           </ul>
         </div>
+
+        <c:if test="${sessionScope.auth != null}">
         <div class="product-quantity">
           <h5 class="text-uppercase font-weight-bold">quantity</h5>
           <div class="d-flex mt-3">
@@ -65,13 +68,17 @@
             </button>
           </div>
         </div>
+        </c:if>
       </div>
-      <div class="mt-5 product-action">
-        <a href="#" class="btn btn-lg btn-custom">
-          <i class="fa fa-cart-plus mr-2"></i>
-          Add to cart
-        </a>
-      </div>
+
+      <c:if test="${sessionScope.auth != null}">
+        <div class="mt-5 product-action">
+          <button class="btn btn-lg btn-custom" id="add-item">
+            <i class="fa fa-cart-plus mr-2"></i>
+            Add to cart
+          </button>
+        </div>
+      </c:if>
     </div>
   </div>
 </section>

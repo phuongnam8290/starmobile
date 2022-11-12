@@ -76,3 +76,25 @@ quantityInput.addEventListener("change", event => {
     removeButton.classList.remove("disabled");
   }
 })
+
+// Handle add to cart button
+const addItemBtm = document.querySelector("#add-item");
+addItemBtm.addEventListener("click", async () => {
+  const productId = document.querySelector(".product-details").id;
+  const quantity = document.querySelector("#quantity").value;
+
+  const params = `product_id=${productId}&quantity=${quantity}`;
+
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: params
+  };
+
+  let response = await fetch("cart/product", options);
+  let result = await response.json();
+
+  console.log(result);
+})

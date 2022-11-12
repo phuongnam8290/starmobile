@@ -12,6 +12,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 
+import static com.namdp.starmobile.utils.JSONSender.sendSuccess;
+
 // TODO: Add filter class to restrict access for non-login user
 
 public class CartItemController extends HttpServlet {
@@ -23,47 +25,16 @@ public class CartItemController extends HttpServlet {
     //  quantity: number
     // }
 
-    // Check if quantity > 0. If not, send error json back.
-    String quantityParameter = request.getParameter("quantity");
-    int quantity;
-
-    try {
-      quantity = Integer.parseInt(quantityParameter);
-    } catch (NullPointerException | NumberFormatException ex) {
-      sendError(response);
-      return;
-    }
-
-    // Fetch the pending order of the current user. If user does not have pending order, create new order.
-    HttpSession session = request.getSession();
-    User user = (User)(session.getAttribute("auth"));
-    Order pendingOrder = OrderDAO.getPendingOrderByUser(user.getEmail());
-
-    if(pendingOrder == null) {
-      pendingOrder = OrderDAO.createPendingOrder(user);
-    }
-
-    // Check if product exist in db. If not, send error json back.
-    String productIdParameter = request.getParameter("product_id");
-    int productId;
-
-    try {
-      productId = Integer.parseInt(productIdParameter);
-    } catch (NullPointerException | NumberFormatException ex) {
-      sendError(response);
-      return;
-    }
-
-    Product product = ProductDAO.getProductById(productId);
-    if(product == null) {
-      sendError(response);
-      return;
-    }
+    Order pendingOrder = getPendingOrder(request);
+    int quantity = (int)request.getAttribute("quantity");
+    Product product = (Product)request.getAttribute("product");
 
     // If the product already exist in the order, update the quantity. If not, create new one.
     for (OrderDetail detail : pendingOrder.getOrderDetails()) {
       if (product.getId() == detail.getProduct().getId()) {
-        OrderDetailDAO.updateOrderDetail(detail.getId(), product, quantity);
+        OrderDetailDAO.updateOrderDetail(detail.getId(), product, detail.getQuantity() + quantity);
+        sendSuccess(response, "CREATED", product.getId() + "-" + quantity);
+        return;
       }
     }
 
@@ -100,28 +71,17 @@ public class CartItemController extends HttpServlet {
     // Synchronize with the order in session.
   }
 
-  private void sendError(HttpServletResponse response) {
-    return;
-  }
+  // Get pending order from current user. If not exist, create new one.
+  private Order getPendingOrder(HttpServletRequest request) {
+    HttpSession session = request.getSession();
 
-  // Check if user has pending order. Only check in session, since session's order being synchronized after each request
-  private boolean hasPendingOrder() {
-    return false;
-  }
+    User user = (User)(session.getAttribute("auth"));
+    Order pendingOrder = OrderDAO.getPendingOrderByUser(user.getEmail());
 
-  // Check if product exists in database. Necessary since user can send request to server without using provided ui
-  private boolean isProductExistInDb(int productId) {
-    return false;
-  }
+    if(pendingOrder == null) {
+      pendingOrder = OrderDAO.createPendingOrder(user);
+    }
 
-  // Check if product exists in order. Only check in session, since session's order being synchronized after each
-  // request
-  private boolean isProductExistInOrder(int productId) {
-    return false;
-  }
-
-  // Synchronize order in session
-  private void sychronizeOSession() {
-    // Fetch pending order in db, replace session current order with its.
+    return pendingOrder;
   }
 }
