@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class CartItemController extends HttpServlet {
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) {
     // Use when user add new product to order. Parameters of request:
     // {
     //  product_id: number,
