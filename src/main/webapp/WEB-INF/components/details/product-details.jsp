@@ -2,7 +2,7 @@
 <%@ taglib prefix="custom" tagdir="/WEB-INF/tags" %>
 
 <link rel="stylesheet" type="text/css"
-      href="${pageContext.request.contextPath}/static/css/product-details.css">
+      href="${pageContext.request.contextPath}/static/css/details/product-details.css">
 
 <section class="container">
   <div class="section-title">

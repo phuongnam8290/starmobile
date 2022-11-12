@@ -2,7 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="custom" tagdir="/WEB-INF/tags" %>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/product.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/common/product.css">
 
 <div class="col-lg-3 col-md-4 col-sm-6">
   <div class="spin-animate">

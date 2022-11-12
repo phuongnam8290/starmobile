@@ -24,7 +24,7 @@ body.custom-modal-open {
 }
 
 .sign-in-img {
-  background: url("../img/signin/01.jpg") no-repeat center/cover;
+  background: url("../../img/signin/01.jpg") no-repeat center/cover;
 }
 
 .sign-in-form {

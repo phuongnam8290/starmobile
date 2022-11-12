@@ -17,11 +17,11 @@
 </head>
 <body>
 
-<jsp:include page="../components/header.jsp" />
+<jsp:include page="../components/common/header.jsp" />
 
-<jsp:include page="../components/product-details.jsp"/>
+<jsp:include page="../components/details/product-details.jsp"/>
 
-<jsp:include page="../components/footer.jsp" />
+<jsp:include page="../components/common/footer.jsp" />
 
 <!-- jQuery library -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>

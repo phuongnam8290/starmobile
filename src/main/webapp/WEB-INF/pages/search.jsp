@@ -16,18 +16,18 @@
 </head>
 <body>
 
-<jsp:include page="../components/header.jsp" />
+<jsp:include page="../components/common/header.jsp" />
 
 <c:choose>
     <c:when test="${requestScope.numberOfProducts > 0}">
-        <jsp:include page="../components/search-result.jsp" />
+        <jsp:include page="../components/search/search-result.jsp" />
     </c:when>
     <c:otherwise>
-        <jsp:include page="../components/search-no-result.jsp" />
+        <jsp:include page="../components/search/search-no-result.jsp" />
     </c:otherwise>
 </c:choose>
 
-<jsp:include page="../components/footer.jsp" />
+<jsp:include page="../components/common/footer.jsp" />
 
 <!-- jQuery library -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>

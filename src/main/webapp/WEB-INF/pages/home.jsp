@@ -16,20 +16,27 @@
 </head>
 <body>
 
-<jsp:include page="../components/header.jsp" />
-<jsp:include page="../components/banner.jsp" />
+<jsp:include page="../components/common/header.jsp" />
+<jsp:include page="../components/home/banner.jsp" />
 
 <section class="products">
     <div class="section-title">
         <h4>Product list</h4>
     </div>
-    <jsp:include page="../components/product-list.jsp">
-        <jsp:param name="pagination" value="true"/>
-    </jsp:include>
+    <div class="container">
+        <div class="row product-list">
+            <c:forEach var="product" items="${requestScope.productList}">
+                <c:set var="product" value="${product}" scope="request"/>
+                <jsp:include page="../components/common/product.jsp"/>
+            </c:forEach>
+        </div>
+
+        <jsp:include page="../components/common/pagination.jsp"/>
+    </div>
 </section>
 
-<jsp:include page="../components/newsletter.jsp" />
-<jsp:include page="../components/footer.jsp" />
+<jsp:include page="../components/home/newsletter.jsp" />
+<jsp:include page="../components/common/footer.jsp" />
 
 <!-- jQuery library -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>

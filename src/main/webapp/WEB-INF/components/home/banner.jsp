@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/banner.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/home/banner.css">
 
 <section class="categories">
   <div class="categories-item item-1">

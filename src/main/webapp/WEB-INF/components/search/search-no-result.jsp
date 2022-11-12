@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/search-no-result.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/search/search-no-result.css">
 
 <section class="d-flex flex-column justify-content-center align-items-center container no-result">
   <img src="${pageContext.request.contextPath}/static/img/search/no-result-found.png">

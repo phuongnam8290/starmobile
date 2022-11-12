@@ -1,18 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/product-list.css">
-
-<div class="container">
-  <div class="row product-list">
-    <c:forEach var="product" items="${requestScope.productList}">
-      <c:set var="product" value="${product}" scope="request"/>
-      <jsp:include page="product.jsp"/>
-    </c:forEach>
-  </div>
-</div>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/common/pagination.css">
 
 <!-- Pagination -->
-<c:if test="${param.pagination}">
 <nav>
   <ul class="pagination justify-content-center">
 
@@ -71,5 +61,4 @@
     </c:choose>
   </ul>
 </nav>
-</c:if>
 <!-- End of pagination -->

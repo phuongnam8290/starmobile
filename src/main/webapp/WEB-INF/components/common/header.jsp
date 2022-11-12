@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/header.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/common/header.css">
 
 <!-- Header -->
 <header class="header px-5 pt-4 pb-1">
@@ -71,4 +71,4 @@
 </header>
 <!-- End of header -->
 
-<jsp:include page="../components/sign-in-form.jsp" />
+<jsp:include page="../form/sign-in-form.jsp" />

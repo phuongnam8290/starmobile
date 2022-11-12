@@ -1,0 +1,18 @@
+.cart-empty {
+  height: 85vh;
+}
+
+.cart-empty img {
+  width: 80%;
+}
+
+.cart-empty h5 {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.cart-empty p {
+  font-size: 1.5rem;
+  color: var(--text-light-color);
+  margin-top: 1rem;
+}

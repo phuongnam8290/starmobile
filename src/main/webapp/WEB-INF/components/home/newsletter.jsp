@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/newsletter.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/home/newsletter.css">
 
 <!-- Newsletter -->
 <section class="newsletter-area">

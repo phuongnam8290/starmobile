@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/footer.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/common/footer.css">
 
 <!-- Footer-top -->
 <section class="footer">
