@@ -11,66 +11,72 @@
     <servlet-name>HomeController</servlet-name>
     <servlet-class>com.namdp.starmobile.controllers.HomeController</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>LoginController</servlet-name>
-    <servlet-class>com.namdp.starmobile.controllers.LoginController</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>AdminController</servlet-name>
-    <servlet-class>com.namdp.starmobile.controllers.AdminController</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>LogoutController</servlet-name>
-    <servlet-class>com.namdp.starmobile.controllers.LogoutController</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DetailsController</servlet-name>
-    <servlet-class>com.namdp.starmobile.controllers.DetailsController</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>SearchController</servlet-name>
-    <servlet-class>com.namdp.starmobile.controllers.SearchController</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>CartItemController</servlet-name>
-    <servlet-class>com.namdp.starmobile.controllers.CartItemController</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>CarController</servlet-name>
-    <servlet-class>com.namdp.starmobile.controllers.CartController</servlet-class>
-  </servlet>
-
   <servlet-mapping>
     <servlet-name>HomeController</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>LoginController</servlet-name>
-    <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AdminController</servlet-name>
-    <url-pattern>/admin</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>LogoutController</servlet-name>
-    <url-pattern>/logout</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>DetailsController</servlet-name>
-    <url-pattern>/details</url-pattern>
-  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SearchController</servlet-name>
+    <servlet-class>com.namdp.starmobile.controllers.SearchController</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>SearchController</servlet-name>
     <url-pattern>/search</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DetailsController</servlet-name>
+    <servlet-class>com.namdp.starmobile.controllers.DetailsController</servlet-class>
+  </servlet>
   <servlet-mapping>
-    <servlet-name>CarController</servlet-name>
+    <servlet-name>DetailsController</servlet-name>
+    <url-pattern>/details</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>LoginController</servlet-name>
+    <servlet-class>com.namdp.starmobile.controllers.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginController</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>LogoutController</servlet-name>
+    <servlet-class>com.namdp.starmobile.controllers.LogoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutController</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CartController</servlet-name>
+    <servlet-class>com.namdp.starmobile.controllers.CartController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartController</servlet-name>
     <url-pattern>/cart</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CartItemController</servlet-name>
+    <servlet-class>com.namdp.starmobile.controllers.CartItemController</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>CartItemController</servlet-name>
     <url-pattern>/cart/product</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AdminController</servlet-name>
+    <servlet-class>com.namdp.starmobile.controllers.AdminController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminController</servlet-name>
+    <url-pattern>/admin</url-pattern>
   </servlet-mapping>
 
   <filter>
