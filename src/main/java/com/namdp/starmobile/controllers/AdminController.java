@@ -9,15 +9,6 @@ import java.io.IOException;
 public class AdminController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    HttpSession session = request.getSession();
-    User auth = (User)session.getAttribute("auth");
-
-    // Redirect to home page if user not authenticated or not an admin
-    if(auth == null || !auth.getRole().getName().equals("admin")) {
-      response.sendRedirect(getServletContext().getContextPath() + "/home");
-      return;
-    }
-
     getServletContext().getRequestDispatcher("/WEB-INF/pages/admin.jsp").forward(request, response);
   }
 
