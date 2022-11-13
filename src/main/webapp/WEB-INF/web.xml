@@ -90,11 +90,11 @@
   </filter-mapping>
 
   <filter>
-    <filter-name>CartItemFIlter</filter-name>
+    <filter-name>CartItemFilter</filter-name>
     <filter-class>com.namdp.starmobile.filters.CartItemFilter</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>CartItemFIlter</filter-name>
+    <filter-name>CartItemFilter</filter-name>
     <url-pattern>/cart/product/*</url-pattern>
   </filter-mapping>
 

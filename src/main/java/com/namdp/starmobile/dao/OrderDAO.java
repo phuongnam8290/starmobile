@@ -88,6 +88,26 @@ public class OrderDAO {
   }
 
   // Update order status to check out
+  public static Order checkoutOrder(Order order, User user) {
+    String query = "UPDATE `order` o " +
+        "SET o.order_status=2, o.order_date=NOW(), o.order_address=?, o.order_total_price=? " +
+        "WHERE o.order_id=?";
+
+    return DBUtils.updateData(query,
+        statement -> {
+          double totalPrice = 0;
+
+          for (OrderDetail orderDetail : order.getOrderDetails()) {
+            totalPrice += orderDetail.getPrice();
+          }
+
+          statement.setString(1, user.getAddress());
+          statement.setDouble(2, totalPrice);
+          statement.setInt(3, order.getId());
+        },
+        statement -> OrderDAO.getOrderById(order.getId())
+    );
+  }
 
   /**
    * Convert a given ResultSet row to a Order object.

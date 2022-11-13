@@ -60,6 +60,11 @@ for (const cartItem of cartItems) {
   })
 }
 
+// Handle checkout btn
+const checkoutBtn = document.getElementById("checkout");
+checkoutBtn.addEventListener("click", checkoutOrder);
+
+
 async function changeItemQuantity(productId, quantity, operation) {
   let modifiedQuantity;
 
@@ -96,6 +101,23 @@ const formatter = new Intl.NumberFormat("vi-VN", {
   style: "currency",
   currency: "VND"
 })
+
+async function checkoutOrder() {
+  const url = 'cart';
+  const options = {
+    method: "POST"
+  }
+
+  let response = await fetch(url, options);
+  let returnedJSON = await response.json();
+
+  if(returnedJSON.status === "CHECKOUTED") {
+    alert("Your order has been checkout");
+    location.reload();
+  } else {
+    alert("Cannot checkout your order, please retry later");
+  }
+}
 
 // Update cart item info
 function updateItemInfo(returnedJSON) {

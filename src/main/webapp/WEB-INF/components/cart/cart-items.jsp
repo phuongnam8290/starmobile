@@ -103,7 +103,7 @@
           </div>
         </div>
 
-        <button class="mt-3 btn btn-custom checkout">checkout</button>
+        <button class="mt-3 btn btn-custom checkout" id="checkout">checkout</button>
       </div>
     </div>
     <!--  End of payment info  -->
