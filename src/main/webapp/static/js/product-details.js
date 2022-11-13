@@ -97,4 +97,11 @@ addItemBtm.addEventListener("click", async () => {
   let result = await response.json();
 
   console.log(result);
+
+  if(result.status === "CREATED" || result.status === "UPDATED") {
+    let quantity = result.message.split("-")[1];
+    alert(`Add ${quantity} product to cart.`);
+  } else {
+    alert("Error adding product to cart.");
+  }
 })

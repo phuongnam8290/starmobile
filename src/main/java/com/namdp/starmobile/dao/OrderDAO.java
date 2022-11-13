@@ -77,9 +77,17 @@ public class OrderDAO {
     );
   }
 
-  // Update order status to check out
-
   // Delete order
+  public static Order deleteOrder(Order order) {
+    String query = "DELETE FROM `order` " +
+        "WHERE order_id=?";
+
+    return DBUtils.updateData(query,
+        statement -> statement.setInt(1, order.getId()),
+        statement -> order);
+  }
+
+  // Update order status to check out
 
   /**
    * Convert a given ResultSet row to a Order object.

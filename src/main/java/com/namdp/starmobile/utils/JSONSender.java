@@ -13,7 +13,7 @@ public class JSONSender {
 
   // Send success msg back to user as a JSON object.
   public static void sendSuccess(HttpServletResponse response, String status, String msg) {
-    String responseJSON = String.format("{\"status\": %s, \"message\": \"%s\"}", status, msg);
+    String responseJSON = String.format("{\"status\": \"%s\", \"message\": \"%s\"}", status, msg);
     sendJSON(response, responseJSON);
   }
 

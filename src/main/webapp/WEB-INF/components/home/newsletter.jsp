@@ -9,7 +9,7 @@
     </p>
     <form class="row subscribe-form" action="#" method="post">
       <div class="col-md-9">
-        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email..." required>
+        <input type="email" name="email" class="form-control" placeholder="Enter your email..." required>
       </div>
       <div class="col-md-3">
         <button type="submit" class="btn submit">Subscribe</button>

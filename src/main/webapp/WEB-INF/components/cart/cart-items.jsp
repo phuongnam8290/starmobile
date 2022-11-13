@@ -24,22 +24,31 @@
       </div>
       <!-- End of product list header -->
 
-      <c:forEach var="orderDetail" items="${requestScope.cart.orderDetails}" >
+      <c:forEach var="orderDetail" items="${requestScope.cart.orderDetails}">
         <!-- Product details -->
         <div class="product-list-details" id="${orderDetail.product.id}">
           <div class="image">
             <img src="${pageContext.request.contextPath}/static/img/products/${orderDetail.product.img}/thumbnail.jpg">
           </div>
-          <div class="name">${orderDetail.product.name}</div>
+          <div class="name">
+            <a href="${pageContext.request.contextPath}/details?id=${orderDetail.product.id}">${orderDetail.product.name}</a>
+          </div>
           <div class="price">
-            <fmt:setLocale value="vi_VN"/>
-            <fmt:formatNumber value="${orderDetail.price}" type="currency"/>
+            <div>
+              <fmt:setLocale value="vi_VN"/>
+              <fmt:formatNumber value="${orderDetail.price}" type="currency"/>
+            </div>
+            <input type="hidden"
+                   value="
+                      <fmt:formatNumber type="number" value='${orderDetail.price}' groupingUsed='false'
+                      maxFractionDigits='0'/>
+                   "/>
           </div>
           <div class="d-flex quantity">
-            <button class="btn btn-outline-secondary remove disabled">
+            <button class="btn btn-outline-secondary remove">
               <i class="fa fa-minus"></i>
             </button>
-            <input type="text" name="quantity" value="${orderDetail.quantity}">
+            <input type="text" name="quantity" value="${orderDetail.quantity}"/>
             <button class="btn btn-outline-secondary add">
               <i class="fa fa-plus"></i>
             </button>
@@ -67,7 +76,7 @@
       <div class="payment-info">
         <div class="price-calculation">
           <div>Subtotal</div>
-          <div>
+          <div id="subtotal">
             <c:set var="subtotal" value="0"/>
             <c:forEach var="orderDetail" items="${requestScope.cart.orderDetails}">
               <c:set var="subtotal" value="${subtotal + orderDetail.price}"/>
@@ -75,12 +84,14 @@
             <fmt:formatNumber value="${subtotal}" type="currency"/>
           </div>
           <div>Shipment</div>
-          <div>
+          <div id="shipment">
             <fmt:formatNumber value="${requestScope.cart.shipment}" type="currency"/>
+            <input type="hidden" value="${requestScope.cart.shipment}"/>
           </div>
           <div>Discount</div>
-          <div>
+          <div id="discount">
             -<fmt:formatNumber value="${requestScope.cart.discount}" type="currency"/>
+            <input type="hidden" value="${requestScope.cart.discount}"/>
           </div>
         </div>
 
@@ -88,7 +99,7 @@
 
         <div class="total">
           <div>Total</div>
-          <div>
+          <div id="total">
             <c:set var="total" value="${subtotal - requestScope.cart.discount + requestScope.cart.shipment}"/>
             <fmt:formatNumber value="${total}" type="currency"/>
           </div>
@@ -101,3 +112,5 @@
   </div>
 </section>
 <!-- End of shopping cart-->
+
+<script src="${pageContext.request.contextPath}/static/js/cart-items.js"></script>

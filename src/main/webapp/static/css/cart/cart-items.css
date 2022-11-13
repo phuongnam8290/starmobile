@@ -33,6 +33,10 @@
   width: 100%;
 }
 
+.shopping-cart .product-list-details .name a:hover {
+  color: var(--primary-color)
+}
+
 .shopping-cart .product-list-details .price {
   color: var(--primary-dark-color);
 }

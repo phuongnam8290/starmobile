@@ -33,7 +33,14 @@ public class OrderDetailDAO {
         });
   }
 
-  // Remove product from order
+  // Delete order details
+  public static OrderDetail deleteOrderDetail(OrderDetail orderDetail) {
+    String query = "DELETE FROM order_detail " +
+        "WHERE id=?";
+    return DBUtils.updateData(query,
+        statement -> statement.setInt(1, orderDetail.getId()),
+        statement -> orderDetail);
+  }
 
   // Update order details
   public static OrderDetail updateOrderDetail(int id, Product product, int quantity) {

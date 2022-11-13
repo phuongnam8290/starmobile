@@ -1,5 +1,5 @@
 .cart-empty {
-  height: 85vh;
+  min-height: 85vh;
 }
 
 .cart-empty img {
