@@ -4,11 +4,6 @@ const cartItems = document.querySelectorAll(".product-list-details");
 for (const cartItem of cartItems) {
   const quantityInput = cartItem.querySelector("input[type=text]");
   quantityInput.addEventListener("keypress", checkNumericKey);
-  // quantityInput.addEventListener("blur", event => {
-  //   if (Number.parseInt(event.target.value) === 0 || isNaN(Number.parseInt(event.target.value))) {
-  //     event.target.value = 1;
-  //   }
-  // });
 }
 
 function checkNumericKey(event) {
@@ -23,6 +18,8 @@ function checkNumericKey(event) {
 for (const cartItem of cartItems) {
   const quantityInput = cartItem.querySelector("input[type=text]");
   quantityInput.addEventListener("blur", async event => {
+
+    // Make sure quantity input field has valid value when lose focus.
     if (Number.parseInt(event.target.value) === 0 || isNaN(Number.parseInt(event.target.value))) {
       event.target.value = 1;
     }
@@ -54,6 +51,15 @@ for (const cartItem of cartItems) {
   })
 }
 
+// Handle delete btn
+for (const cartItem of cartItems) {
+  const deleteBtn = cartItem.querySelector("button.delete");
+  deleteBtn.addEventListener("click", async () => {
+    const productId = cartItem.id;
+    await deleteItem(productId);
+  })
+}
+
 async function changeItemQuantity(productId, quantity, operation) {
   let modifiedQuantity;
 
@@ -72,6 +78,18 @@ async function changeItemQuantity(productId, quantity, operation) {
 
   let response = await fetch(url, options);
   updateItemInfo(await response.json());
+  updatePaymentInfo();
+}
+
+async function deleteItem(productId) {
+  const url = `cart/product?product_id=${productId}`;
+  const options = {
+    method: "DELETE",
+  };
+
+  let response = await fetch(url, options);
+  updateItemInfo(await response.json());
+  updatePaymentInfo();
 }
 
 const formatter = new Intl.NumberFormat("vi-VN", {
@@ -109,8 +127,6 @@ function updateItemInfo(returnedJSON) {
   } else if (status === "DELETED") {
     item.remove();
   }
-
-  updatePaymentInfo();
 }
 
 // Update cart payment info

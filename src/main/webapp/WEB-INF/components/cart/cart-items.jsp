@@ -18,9 +18,7 @@
         <div class="product">Product</div>
         <div class="price">Price</div>
         <div class="quantity">Quantity</div>
-        <div class="remove">
-          <a href="#" class="delete"><i class="fa fa-trash"></i></a>
-        </div>
+        <div></div>
       </div>
       <!-- End of product list header -->
 
@@ -54,7 +52,7 @@
             </button>
           </div>
           <div>
-            <a href="#" class="delete"><i class="fa fa-trash"></i></a>
+            <button class="delete"><i class="fa fa-trash"></i></button>
           </div>
         </div>
         <!-- End of product details -->

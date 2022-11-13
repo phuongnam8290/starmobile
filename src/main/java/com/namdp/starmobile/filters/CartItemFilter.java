@@ -18,15 +18,15 @@ public class CartItemFilter implements Filter {
     HttpServletRequest request = (HttpServletRequest) servletRequest;
     HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-    // If quantity parameter not valid, send error back to user as JSON.
-    if (!isQuantityParameterValid(request, response)) {
-      sendError(response, "Invalid quantity parameter");
-      return;
-    }
-
     // If product parameter not valid, send error back to user as JSON.
     if (!isProductParameterValid(request, response)) {
       sendError(response, "Invalid product parameter");
+      return;
+    }
+
+    // If quantity parameter not valid, send error back to user as JSON.
+    if (!isQuantityParameterValid(request, response)) {
+      sendError(response, "Invalid quantity parameter");
       return;
     }
 
@@ -43,6 +43,13 @@ public class CartItemFilter implements Filter {
 
   // Check if quantity parameter valid or not. IF valid, add to request.
   private boolean isQuantityParameterValid(HttpServletRequest request, HttpServletResponse response) {
+    String HTTPMethod = request.getMethod();
+
+    // If the user delete product (using DELETE method), then we do not need to check the quantity.
+    if(HTTPMethod.equals("DELETE")) {
+      return true;
+    }
+
     String quantityParameter = request.getParameter("quantity");
     int quantity;
 
@@ -52,8 +59,6 @@ public class CartItemFilter implements Filter {
     } catch (NullPointerException | NumberFormatException ex) {
       return false;
     }
-
-    String HTTPMethod = request.getMethod();
 
     // If user add new product to cart (using POST method), the quantity must > 0. Otherwise, if user change the
     // quantity in cart (using PUT method), the quantity must >= 0.

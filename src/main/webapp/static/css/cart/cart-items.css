@@ -74,6 +74,10 @@
   border-color: #a9a9a9;
 }
 
+.shopping-cart .delete {
+  border: none;
+}
+
 .shopping-cart .delete:hover {
   color: red;
 }

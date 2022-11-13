@@ -7,12 +7,10 @@ import com.namdp.starmobile.entities.OrderDetail;
 import com.namdp.starmobile.entities.Product;
 import com.namdp.starmobile.entities.User;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 import static com.namdp.starmobile.utils.JSONSender.sendError;
 import static com.namdp.starmobile.utils.JSONSender.sendSuccess;
@@ -48,7 +46,7 @@ public class CartItemController extends HttpServlet {
   }
 
   @Override
-  protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  protected void doPut(HttpServletRequest request, HttpServletResponse response) {
     // Use when user increase / decrease quantity of the product in order.
     // {
     //  product_id: number,
@@ -82,19 +80,7 @@ public class CartItemController extends HttpServlet {
     // If quantity is 0. Remove the product from the order.
     int quantity = (int) request.getAttribute("quantity");
     if (quantity == 0) {
-      OrderDetailDAO.deleteOrderDetail(orderDetail);
-
-      // After removal, check the order again. If the order is empty, delete order. Refresh to page
-      pendingOrder = getPendingOrder(request, false);
-
-      if (pendingOrder.getOrderDetails().size() == 0) {
-        OrderDAO.deleteOrder(pendingOrder);
-
-        // If pending order being delete, send {status: "ORDER-DELETED"} back to user
-        sendSuccess(response,"ORDER-DELETED", "");
-      } else {
-        sendSuccess(response, "DELETED", String.valueOf(orderDetail.getProduct().getId()));
-      }
+      deleteOrderDetail(request, response, orderDetail);
     } else {
       orderDetail = OrderDetailDAO.updateOrderDetail(orderDetail.getId(), product, quantity);
       sendSuccess(response, "UPDATED", orderDetail.getProduct().getId() + "-" + orderDetail.getQuantity() + "-" +
@@ -103,16 +89,36 @@ public class CartItemController extends HttpServlet {
   }
 
   @Override
-  protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+  protected void doDelete(HttpServletRequest request, HttpServletResponse response) {
+    // Use when user click trash icon in cart.
     // {
     //  product_id: number
     // }
 
-    // Use when user click trash icon in cart.
     // Check if user has pending order. If not, send error json back.
+    Order pendingOrder = getPendingOrder(request, false);
+    if (pendingOrder == null) {
+      sendError(response, "No pending order exists");
+      return;
+    }
+
     // Check if product exists in order. If not, send error json back.
-    // Remove the product from order. After removal, check the order again. If the order is empty, delete order.
-    // Synchronize with the order in session.
+    Product product = (Product) request.getAttribute("product");
+    OrderDetail orderDetail = null;
+
+    for (OrderDetail detail : pendingOrder.getOrderDetails()) {
+      if (detail.getProduct().getId() == product.getId()) {
+        orderDetail = detail;
+        break;
+      }
+    }
+
+    if (orderDetail == null) {
+      sendError(response, "Product not exist in pending order");
+      return;
+    }
+    // Remove the product from order.
+    deleteOrderDetail(request, response, orderDetail);
   }
 
   // Get pending order from current user. Create new one if necessary.
@@ -128,5 +134,23 @@ public class CartItemController extends HttpServlet {
     }
 
     return pendingOrder;
+  }
+
+  // Delete order details from order
+  private void deleteOrderDetail(HttpServletRequest request, HttpServletResponse response, OrderDetail orderDetail) {
+    Order pendingOrder;
+    OrderDetailDAO.deleteOrderDetail(orderDetail);
+
+    // After removal, check the order again. If the order is empty, delete order. Refresh to page
+    pendingOrder = getPendingOrder(request, false);
+
+    if (pendingOrder.getOrderDetails().size() == 0) {
+      OrderDAO.deleteOrder(pendingOrder);
+
+      // If pending order being delete, send {status: "ORDER-DELETED"} back to user
+      sendSuccess(response, "ORDER-DELETED", "");
+    } else {
+      sendSuccess(response, "DELETED", String.valueOf(orderDetail.getProduct().getId()));
+    }
   }
 }
